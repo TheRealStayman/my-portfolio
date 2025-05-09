@@ -1,0 +1,862 @@
+/* css/style.css */
+:root {
+    --font-primary: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --color-text: #333;
+    --color-bg-light-gray: #fcfcfc;
+    --color-bg-light-blue: #97e2fc;
+    --color-white: #ffffff;
+    --color-header-bg: var(--color-white);
+    --color-divider: #cccccc;
+    --color-shadow: rgba(0, 0, 0, 0.1);
+    --color-card-darken: rgba(0, 0, 0, 0.01);
+    /* For darkening side cards */
+
+    --padding-global-lr: 96px;
+    --padding-text-block: 48px;
+    --padding-tile-content-lr: 80px;
+    --margin-tile-tb: 48px;
+    --margin-divider-tb: 48px;
+    --margin-section-title-bottom: 20px;
+
+    --first-card-width: 135px;
+    --last-card-width-offset: 365px;
+    --card-pop-out-room: 20px;
+}
+
+body {
+    font-family: var(--font-primary);
+    color: var(--color-text);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: var(--color-white);
+    /* Default background */
+}
+
+body.homepage-bg {
+    background-color: var(--color-bg-light-gray);
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1,
+h2,
+h3 {
+    margin-top: 0;
+}
+
+/* --- Header --- */
+.site-header {
+    background-color: var(--color-header-bg);
+    padding: 15px var(--padding-global-lr);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    /* Floating/sticky header */
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px var(--color-shadow);
+}
+
+.site-header nav a {
+    margin-left: 20px;
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+.site-header nav a:first-child {
+    margin-left: 0;
+}
+
+.site-header .social-links a {
+    margin-left: 15px;
+}
+
+/* --- Banner --- */
+.banner {
+    background-color: var(--color-bg-light-gray);
+    /* Light gray banner for homepage if body bg is different */
+    width: 100%;
+    aspect-ratio: 3.2 / 1;
+    /* Width to height ratio 3.2:1 */
+    display: flex;
+    align-items: center;
+    /* Vertically center content */
+}
+
+.banner-content {
+    display: flex;
+    justify-content: space-between;
+    /* Text block left, image right */
+    align-items: center;
+    /* Vertically center items within banner-content */
+    width: 100%;
+    padding: 0 var(--padding-global-lr);
+    /* 96px padding left/right */
+    box-sizing: border-box;
+}
+
+.banner-text {
+    flex: 1;
+    /* Allow text block to take available space */
+    padding: var(--padding-text-block);
+    /* 48px padding on all sides for text */
+    text-align: left;
+}
+
+.banner-text h1 {
+    font-size: 2.5em;
+    margin-bottom: 0.25em;
+}
+
+.banner-text .subtitle {
+    font-size: 1.5em;
+    color: #555;
+    margin-bottom: 1em;
+}
+
+.banner-image {
+    flex-shrink: 0;
+    /* Prevent image from shrinking */
+    /* Add width/height constraints if needed, or let the image size dictate */
+    /* e.g., max-width: 30%; */
+}
+
+.banner-image img {
+    max-width: 100%;
+    max-height: calc(100% - (2 * var(--padding-text-block)));
+    /* Approximate if banner has fixed height */
+    object-fit: contain;
+    /* Ensure image is scaled correctly */
+    background-color: transparent;
+    /* Assuming transparent PNG */
+}
+
+
+/* --- Content Tiles (Education/Skills, Contact) --- */
+.content-tile {
+    padding: var(--padding-global-lr);
+    /* 96px L/R for outer, 80px L/R for inner content */
+    margin: var(--margin-tile-tb);
+    /* 48px top/bottom margin */
+    aspect-ratio: 3 / 1;
+    /* Width to height ratio 3:1 */
+    display: flex;
+    flex-direction: column;
+    /* Default for single content block */
+    justify-content: center;
+    /* Center content vertically */
+    box-sizing: border-box;
+}
+
+.content-background {
+    background-color: var(--color-bg-light-blue);
+    /* border-radius: 15px; */
+    padding: var(--padding-tile-content-lr);
+}
+
+.education-skills-tile {
+    display: flex;
+    flex-direction: row;
+    /* Side-by-side sections */
+    justify-content: space-around;
+    /* Distribute space between sections */
+    align-items: flex-start;
+    /* Align items to the top of their containers */
+}
+
+.tile-section {
+    flex: 1;
+    padding: 0 var(--padding-tile-content-lr);
+    /* Inner content padding */
+    box-sizing: border-box;
+    text-align: center;
+    /* All text centered */
+}
+
+.tile-section .text-block,
+.tile-section .list-block {
+    text-align: left;
+    /* Text blocks formatted to the left */
+    margin-bottom: 20px;
+    /* Space between blocks if stacked */
+}
+
+.tile-section .list-block ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 0;
+}
+
+.tile-section h2,
+.tile-section h3 {
+    text-align: center;
+    /* Headings remain centered */
+    margin-bottom: 10px;
+}
+
+.contact-tile {
+    text-align: left;
+    padding-top: var(--padding-text-block);
+    /* Adjust padding for vertical centering */
+    padding-bottom: var(--padding-text-block);
+}
+
+.contact-tile h2 {
+    margin-bottom: 20px;
+}
+
+.contact-links p {
+    margin: 10px 0;
+}
+
+/* --- Divider --- */
+hr.divider {
+    border: 0;
+    height: 1px;
+    background-color: var(--color-divider);
+    margin: var(--margin-divider-tb) 0;
+    /* 48px top/bottom margin */
+}
+
+/* --- Carousel Section --- */
+.carousel-section-wrapper {
+    position: relative;
+    margin-bottom: var(--margin-tile-tb);
+    /* Consistent bottom margin */
+}
+
+.section-title-wrapper {
+    padding: 0 var(--padding-global-lr);
+    /* This 96px padding sets the alignment for the title and carousel content */
+}
+
+.section-title {
+    text-align: left;
+    /* If you prefer it centered, the visual alignment of "where the title starts"
+       will be its text block's left edge, which is fine. But left-align is more precise here. */
+    font-size: 1.8em;
+    margin-bottom: var(--margin-section-title-bottom);
+    /* 20px margin bottom */
+    padding: 0 var(--padding-text-block)
+}
+
+.carousel {
+    display: flex;
+    /* Enables flexbox layout for cards */
+    overflow-x: auto;
+    /* Allows horizontal scrolling */
+    overflow-y: hidden;
+    /* Prevents vertical scrollbar if cards pop up due to transforms */
+    position: relative;
+    /* For z-index context of cards and pop-up effect */
+
+    /* Spacing between cards */
+    /* gap: var(--card-spacing); /* Replaces individual card margins for horizontal spacing */
+
+    /* Scroll Snap Behavior */
+    scroll-snap-type: proximity;
+    /* Enforces snapping. Use 'proximity' for softer snapping. */
+    /* No scroll-padding-left needed here because the parent (.carousel-section-wrapper)
+       already provides the necessary offset via its own padding. The carousel's scrollport
+       will naturally start at this offset. */
+
+    /* Padding for card pop-up effect (from previous fix) and scrollbar visibility */
+    padding-top: var(--card-pop-out-room);
+    /* e.g., 15px - enough for translateY(-10px) */
+    padding-bottom: 20px;
+    /* Space for scrollbar and shadow, if scrollbar is visible */
+
+    /* Hide scrollbar (already in your previous CSS) */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: 1px;
+    /* Firefox */
+}
+
+.carousel::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera */
+}
+
+.first-card {
+    flex: 0 0 auto;
+    width: 135px;
+    flex-direction: column;
+    position: relative;
+    scroll-snap-align: start;
+}
+
+.last-card {
+    flex: 0 0 auto;
+    width: calc(100vw - var(--first-card-width) - var(--last-card-width-offset));
+    flex-direction: column;
+    position: relative;
+    scroll-snap-align: start;
+}
+
+.card {
+    flex: 0 0 auto;
+    /* Prevents cards from shrinking/growing; essential for consistent width */
+    width: 350px;
+    /* Or your preferred card width */
+    /* margin: 0 15px; <-- REMOVE this; using 'gap' on .carousel now */
+    background-color: var(--color-white);
+    /* border-radius: 15px; */
+    box-shadow: 0 4px 15px var(--color-shadow);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease, z-index 0s 0.3s;
+    position: relative;
+    /* For z-index and transform effects */
+
+    scroll-snap-align: start;
+    /* THIS IS KEY: Aligns the start (left edge) of the card
+                                 to the start of the carousel's scrollport. */
+
+    /* Default values for CSS custom properties (fallback) */
+    --card-scale: 1;
+    --card-brightness: 1;
+
+    /* Apply transform and filter using these CSS variables */
+    transform: scale(var(--card-scale));
+    filter: brightness(var(--card-brightness));
+
+    /* Transition for smooth changes to transform and filter */
+    transition: transform 0.3s ease,
+        box-shadow 0.3s ease,
+        filter 0.3s ease,
+        margin-left 0.3s ease,
+        margin-right 0.3s ease,
+        opacity 0.3s ease;
+        /* Consider if z-index should transition: z-index 0.1s linear; */
+}
+
+/* The .is-main-active class might not need a z-index rule anymore if JS handles it,
+   but can be used for other distinct styles (e.g., a special border). */
+.card.is-main-active {
+    /* z-index: 15; /* This would be overridden by JS if JS sets card.style.zIndex */
+    /* Add other non-proportional styles here if needed */
+}
+
+/* Updated hover effect for cards */
+.card:not(.no-pop):hover {
+    /* On hover, we want a defined larger scale and full brightness, overriding dynamic values */
+    transform: translateY(calc(-1 * var(--card-pop-out-room) + 5px)) 
+        scale(1.001);
+    /* Or your preferred hover scale */
+    filter: brightness(1);
+    /* Hovered card is always full brightness */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    z-index: 20 !important;
+    /* Hovered card is always the topmost */
+}
+
+.card.no-pop:hover {
+    /* No pop effect for these cards */
+    transform: none;
+    box-shadow: 0 4px 15px var(--color-shadow);
+}
+
+.card-image {
+    width: 100%;
+    height: 180px;
+    /* Fixed height for consistency */
+    object-fit: cover;
+    /* border-top-left-radius: 15px;
+    border-top-right-radius: 15px; */
+}
+
+.card-content {
+    padding: 20px;
+    flex-grow: 1;
+    /* Allow content to fill space */
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content h3 {
+    font-size: 1.3em;
+    margin-bottom: 5px;
+}
+
+.card-subtitle {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.card-content p {
+    font-size: 0.95em;
+    margin-bottom: 15px;
+    flex-grow: 1;
+    /* Push footer to bottom */
+}
+
+.card-footer {
+    font-size: 0.85em;
+    color: #777;
+    margin-top: auto;
+    /* Pushes to the bottom */
+}
+
+.card-footer .location,
+.card-footer .date {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.card-footer .github-link {
+    display: block;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+/* Styles for centered card (to be applied by JavaScript) */
+/*
+.card.active {
+    transform: scale(1.01); 
+    z-index: 10;
+    filter: none; 
+}
+.card.prev, .card.next {
+    transform: scale(0.94);
+    filter: brightness(90%);
+    z-index: 1;
+}
+    */
+
+
+/* --- Footer --- */
+.site-footer-bottom {
+    background-color: #333;
+    /* Darker footer background */
+    color: var(--color-white);
+    padding: 20px var(--padding-global-lr);
+    text-align: right;
+    font-size: 0.9em;
+}
+
+.site-footer-bottom p {
+    margin: 0;
+}
+
+/* --- Styles for Pages with Sidebar --- */
+body.page-with-sidebar {
+    display: flex; /* Arrange sidebar and main content side-by-side */
+    background-color: var(--color-bg-light-gray); /* Main page background for content area */
+    margin-top: 0; /* Remove any default top margin if header is gone */
+}
+
+.page-sidebar {
+    width: 60px; /* Minimized width */
+    height: 100vh; /* Full viewport height */
+    background-color: var(--color-white);
+    position: sticky; /* Keep sidebar visible on scroll */
+    top: 0;
+    z-index: 1000; /* Above other content */
+    overflow: hidden; /* Hide text when minimized */
+    transition: width 0.3s ease;
+    display: flex;
+    flex-direction: column; /* Stack nav and social links */
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+.page-sidebar:hover {
+    width: 300px; /* Expanded width */
+}
+
+.sidebar-nav {
+    flex-grow: 1; /* Nav takes available space */
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav .sidebar-link {
+    display: flex; /* Use flex to align text and indicator */
+    align-items: center;
+    padding: 15px 20px;
+    color: var(--color-text);
+    text-decoration: none;
+    white-space: nowrap; /* Prevent text wrapping */
+    position: relative; /* For pop-out and active indicator positioning */
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.sidebar-nav .link-text {
+    transition: opacity 0.2s 0.1s ease; /* Delay opacity transition for smoother text appearance */
+    opacity: 0; /* Hidden by default when sidebar is minimized */
+}
+
+.page-sidebar:hover .sidebar-nav .link-text {
+    opacity: 1;
+}
+
+/* Link Hover Effects */
+.page-sidebar .sidebar-link:hover {
+    background-color: var(--color-bg-light-gray); /* Subtle hover background */
+    transform: translateX(15px); /* Main pop-out */
+}
+
+/* Pop-out for nearby links - basic version using adjacent sibling selectors */
+/* This will only affect the link immediately AFTER the hovered one. */
+.page-sidebar .sidebar-link:hover + li > .sidebar-link {
+    transform: translateX(5px); /* Slightly pop out next link */
+}
+/* For a more complex "nearby" (both before and after), JavaScript would be needed. */
+
+
+/* Active Link Indicator */
+.sidebar-nav .sidebar-link.active-link {
+    font-weight: bold;
+    /* background-color: #e0eaff; /* Optional: slight background for active link */
+}
+
+.sidebar-nav .active-indicator {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    background-color: var(--color-bg-light-blue); /* Light blue vertical bar */
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease;
+}
+.page-sidebar:hover .sidebar-nav .active-indicator, /* Show when sidebar expanded */
+.page-sidebar .sidebar-link.active-link:hover .active-indicator /* Show on hover of active */
+{
+    opacity: 1;
+}
+/* Ensure active indicator on active link is always visible when sidebar expanded */
+.page-sidebar:hover .sidebar-link.active-link .active-indicator {
+    opacity: 1;
+}
+/* For minimized sidebar, only show indicator if that link is hovered (optional) */
+.page-sidebar .sidebar-link.active-link:hover .active-indicator {
+   /* opacity: 1; /* This might be redundant if covered by general hover */
+}
+
+
+.sidebar-social-links {
+    padding: 20px;
+    text-align: center; /* Center icons/text when sidebar is expanded */
+}
+.sidebar-social-links a {
+    display: inline-block; /* Or block if you want them stacked */
+    margin: 0 5px;
+    padding: 5px;
+    color: var(--color-text);
+    font-size: 18px; /* Adjust if using text like LI, GH, EM */
+    text-decoration: none;
+    opacity: 0; /* Hidden when minimized */
+    transition: opacity 0.2s 0.1s ease, transform 0.2s ease;
+}
+.page-sidebar:hover .sidebar-social-links a {
+    opacity: 1;
+}
+.sidebar-social-links a:hover {
+    transform: scale(1.1);
+    color: #007bff;
+}
+
+
+.main-content-area {
+    flex-grow: 1; /* Takes remaining width */
+    padding: 40px var(--padding-global-lr); /* Consistent padding */
+    /* Background color is set on body.page-with-sidebar */
+    min-height: 100vh; /* Ensure footer is pushed down if content is short */
+    box-sizing: border-box;
+}
+
+.page-title-header {
+    margin-bottom: 30px;
+    text-align: center;
+}
+.page-title-header h1 {
+    font-size: 2.2em;
+    color: var(--color-text);
+}
+
+/* --- Card Grid Layout --- */
+.card-grid-wrapper {
+    margin: auto;
+    width: 1450px;
+    border: 2px solid blue;
+}
+
+.card-grid {
+    display: grid;
+    /* grid-gap: 8px; */
+    /* Responsive column setup from previous step */
+    grid-template-columns: repeat(auto-fill, minmax(355px, 1fr)); /* Default to 1 column */
+    /* gap: 8px; /* **FIX 2: Set desired gap to 7px** */
+    
+    /* margin-top: 8; */
+    /* margin-right: -8px;
+    margin-left: -8px;
+    margin-bottom: 24px; */
+    margin: 0 auto;
+    border: 2px solid orange;
+    /*padding: 32px 0; /* Vertical padding for the grid section */
+    /* The grid itself will span the width of its container (.main-content-area's content box).
+       Centering of items will happen *within* their grid cells if they are narrower. */
+}
+
+@media (max-width: 1720px) {
+    .card-grid-wrapper {
+        width: 1090px;
+    }
+}
+
+@media (max-width: 1360px) {
+    .card-grid-wrapper {
+        width: 730px;
+    }
+}
+
+@media (max-width: 990px) {
+    .card-grid-wrapper {
+        width: 370px;
+    }
+}
+
+/* Wrapper for making the entire card a link */
+.card-link-wrapper {
+    display: flex; /* Takes up its designated grid cell space */
+    flex-direction: column;
+    align-content: stretch;
+    text-decoration: none;
+    color: inherit;
+    height: 100%;     /* Ensures the link wrapper takes the full height of the card (which has a fixed height) */
+
+    /* **FIX 1: Centering cards & controlling their width within grid cells** */
+    /* width: 100%;          /* It can take the full width of the grid cell if needed */
+    /* max-width: 400px;     /* BUT, it won't get wider than this. Adjust as you see fit. */
+                          /* This allows cards to have a consistent max size. */
+    margin-left: auto;    /* Center the wrapper (and thus the card) horizontally within its grid cell */
+    margin-right: auto;   /* Center the wrapper (and thus the card) horizontally within its grid cell */
+    padding: 0 8px;
+    margin-bottom: 16px;
+}
+
+.card-link-wrapper:hover,
+.card-link-wrapper:focus,
+.card-link-wrapper:active {
+    text-decoration: none !important;
+}
+
+.card-link-wrapper:focus-visible { /* Modern focus indicator */
+    outline: 2px solid var(--color-text); /* Using your variable */
+    outline-offset: 2px;
+    text-decoration: none;
+}
+
+.card-link-wrapper .github-link:hover {
+    text-decoration: underline; /* Only underlines when the GitHub link itself is hovered */
+}
+
+/* Card styles for grid pages */
+.card-grid .card {
+    background-color: var(--color-white); /* Ensure cards have a background */
+    box-shadow: 0 4px 15px var(--color-shadow);
+    
+    display: flex; /* Use flexbox for internal layout of card content */
+    flex-direction: column; /* Stack image, content, footer vertically */
+    height: 470px; /* **FIX 1: Set a fixed height for uniform cards**
+                      Adjust this value as needed based on your content and design.
+                      Alternatively, use min-height if some variation is acceptable
+                      but ensure all cards in a row look aligned. */
+    overflow: hidden; /* Prevent content from spilling if it exceeds fixed height */
+
+    /* width: 100%; */
+    margin: 0;
+
+    /* Resetting JS-driven styles if they use the same .card class and interfere */
+    --card-scale: 1;
+    --card-brightness: 1;
+    transform: scale(var(--card-scale)); /* Use the reset scale */
+    filter: brightness(var(--card-brightness)); /* Use the reset brightness */
+    margin: 0; /* Remove individual margins; grid 'gap' handles spacing */
+
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card-grid .card-image {
+    width: 100%;
+    height: 180px; /* **FIX 3: Explicit height for the image area** */
+    object-fit: cover; /* Ensures image covers the area, cropping if necessary */
+    background-color: #e0e0e0; /* Fallback color if image is missing/broken */
+}
+
+.card-grid .card-content {
+    padding: 16px;
+    flex-grow: 1; /* Allows this section to take up available vertical space */
+    display: flex;
+    flex-direction: column; /* Stack its own children */
+    overflow-y: auto; /* Add scroll for content if it exceeds allocated space */
+}
+
+.card-grid .card-content h3 {
+    font-size: 1.3em;
+    margin-bottom: 5px;
+}
+
+.card-grid .card-content .card-subtitle { /* Assuming subtitle exists in grid cards too */
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.card-grid .card-content p { /* This is the main descriptive paragraph */
+    font-size: 0.95em;
+    margin-bottom: 15px;
+    flex-grow: 1; /* If you want the <p> itself to try and fill space, often not needed if .card-content is flex-grow */
+}
+
+.card-grid .card-footer {
+    font-size: 0.85em;
+    color: #777;
+    margin-top: auto; /* Pushes footer to the bottom of .card-content or .card if .card-content isn't flex-grow */
+}
+.card-grid .card-footer .date,
+.card-grid .card-footer .location {
+    display: block;
+    margin-bottom: 5px;
+}
+.card-grid .card-footer .github-link {
+    display: block;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+/* Hover effect for grid cards */
+.card-grid .card:hover {
+    transform: scale(1.03); /* Slight pop-out, no translateY */
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    z-index: 5; /* Ensure card is positioned if not already (position: relative on .card) */
+}
+
+/* --- Click Ripple Effect --- */
+#click-ripple {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.1);
+    /* Default ripple color */
+    /* We will use mix-blend-mode to attempt the "darken" effect */
+    mix-blend-mode: darken;
+    /* This will darken the underlying color */
+    transform: scale(0);
+    animation: ripple-animation 0.1s linear;
+    pointer-events: none;
+    /* So it doesn't interfere with other clicks */
+    z-index: 9999;
+    /* Above most content */
+    opacity: 0;
+    /* Start transparent, animation will show it */
+}
+
+@keyframes ripple-animation {
+    to {
+        transform: scale(100);
+        opacity: 0;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    :root {
+        --padding-global-lr: 20px;
+        --padding-text-block: 20px;
+        --padding-tile-content-lr: 30px;
+
+        --first-card-width: 30px;
+        --last-card-width-offset: 285px;
+    }
+
+    .site-header {
+        flex-direction: column;
+        padding: 15px var(--padding-global-lr);
+    }
+
+    .site-header nav {
+        margin-top: 10px;
+    }
+
+    .site-header nav a {
+        margin: 0 10px;
+    }
+
+    .banner {
+        aspect-ratio: auto;
+        /* Allow height to adjust on mobile */
+        height: auto;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    .banner-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .banner-text {
+        text-align: center;
+        padding: var(--padding-text-block) 0;
+    }
+
+    .banner-image {
+        margin-top: 20px;
+        max-width: 80%;
+    }
+
+    .content-tile {
+        aspect-ratio: auto;
+        /* Allow height to adjust */
+        height: auto;
+        padding: 40px var(--padding-global-lr);
+    }
+
+    .education-skills-tile {
+        flex-direction: column;
+    }
+
+    .tile-section {
+        padding: 20px 0;
+        /* Adjust inner padding */
+    }
+
+    .carousel-section-wrapper {
+        padding: 0 10px;
+        /* Less padding for carousel sections on mobile */
+    }
+
+    .first-card {
+        width: var(--first-card-width);
+    }
+    
+    .last-card {
+        width: calc(100vw - var(--first-card-width) - var(--last-card-width-offset));
+    }
+
+    .card {
+        width: 250px;
+        /* Smaller cards on mobile */
+    }
+
+    .card-grid-wrapper {
+        width: 250px;
+    }
+}

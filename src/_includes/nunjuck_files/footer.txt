@@ -1,0 +1,4 @@
+{# This is the same file as footer.njk but in a txt format for programs to have easier access to #}
+<footer class="site-footer-bottom">
+    <p>&copy; {{ site.copyrightYear }} {{ site.name }}. All rights reserved.</p>
+</footer>

@@ -1,0 +1,23 @@
+{# This is the same file as layout.njk but in a txt format for programs to have easier access to #}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-T">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title or site.name }}</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body {% if page.fileSlug == "" %} class="homepage-bg"{% endif %}>
+
+    {% include "header.njk" %}
+
+    <main>
+        {{ content | safe }}
+    </main>
+
+    {% include "footer.njk" %}
+
+    <div id="click-ripple"></div>
+    <script src="/js/main.js"></script>
+</body>
+</html>
