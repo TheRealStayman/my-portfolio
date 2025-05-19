@@ -1,0 +1,80 @@
+---
+title: "Home Automation System"
+layout: "project-layout.njk"
+eleventyNavigation:
+  key: Home Automation
+  parent: Projects
+---
+
+<div class="project-container">
+    <div class="project-header">
+        <h1 class="project-title">Home Automation System</h1>
+        <div class="project-meta">
+            <span>Status: Ongoing</span>
+            <span>Category: IoT, Embedded Systems</span>
+            <span>Technologies: Raspberry Pi, Python, Node.js</span>
+        </div>
+    </div>
+    
+    <div class="project-description">
+        <p>
+            This custom home automation system was created to provide an open-source, privacy-focused alternative to commercial smart home products. Built around a Raspberry Pi central hub, the system integrates with various sensors and actuators throughout the home.
+        </p>
+        <p>
+            The project consists of two main components: the core firmware running on the Raspberry Pi that handles all device communication and automation rules, and a web/mobile companion app that provides a user-friendly interface for monitoring and control.
+        </p>
+    </div>
+    
+    <div class="project-section">
+        <h2 class="project-section-title">Features</h2>
+        <ul>
+            <li>Local processing with no cloud dependency</li>
+            <li>End-to-end encryption for all communications</li>
+            <li>Support for temperature, humidity, motion, and light sensors</li>
+            <li>Control of lights, thermostats, and smart plugs</li>
+            <li>Customizable automation rules with conditional logic</li>
+            <li>Energy usage monitoring and optimization</li>
+            <li>Mobile app for remote control (iOS and Android)</li>
+        </ul>
+    </div>
+    
+    <div class="project-section">
+        <h2 class="project-section-title">Gallery</h2>
+        <div class="project-gallery">
+            <div class="project-gallery-image">
+                <img src="/img/project-home-automation-1.jpg" alt="Central hub hardware setup">
+            </div>
+            <div class="project-gallery-image">
+                <img src="/img/project-home-automation-2.jpg" alt="Mobile app dashboard">
+            </div>
+            <div class="project-gallery-image">
+                <img src="/img/project-home-automation-3.jpg" alt="Custom sensor module">
+            </div>
+            <div class="project-gallery-image">
+                <img src="/img/project-home-automation-4.jpg" alt="Automation rules interface">
+            </div>
+        </div>
+    </div>
+    
+    <div class="project-section">
+        <h2 class="project-section-title">Technical Details</h2>
+        <p>
+            The core system runs on Raspberry Pi OS with Python for main business logic and device communication. The backend uses Flask to serve a RESTful API, while the frontend is built with React and Material-UI. For device communication, the system implements MQTT for reliable messaging with low overhead.
+        </p>
+        <p>
+            The mobile app is developed using React Native, ensuring consistent experience across iOS and Android platforms. Local authentication is handled via OAuth 2.0, and all data is stored in an SQLite database with regular backups.
+        </p>
+        <p>
+            Current development focuses on expanding device compatibility and implementing machine learning for predictive automation based on user habits.
+        </p>
+    </div>
+    
+    <div class="project-links">
+        <a href="https://github.com/yourusername/home-automation" class="project-button project-button-primary" target="_blank" rel="noopener noreferrer">
+            <span>View on GitHub</span>
+        </a>
+        <a href="/downloads/home-automation-beta.zip" class="project-button project-button-secondary">
+            <span>Download Beta Software (75MB)</span>
+        </a>
+    </div>
+</div>

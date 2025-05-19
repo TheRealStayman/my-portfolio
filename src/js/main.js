@@ -1,56 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Mouse Click Ripple Effect ---
-    const rippleEffect = document.getElementById('click-ripple');
-
-    if (rippleEffect) {
-        document.addEventListener('click', (e) => {
-            // Check if the clicked element or its parent is a link
-            let targetElement = e.target;
-            let isLink = false;
-            while (targetElement != null) {
-                if (targetElement.tagName === 'A') {
-                    isLink = true;
-                    break;
-                }
-                targetElement = targetElement.parentElement;
-            }
-
-            if (isLink) {
-                return; // Don't show ripple for link clicks
-            }
-
-            const rect = document.body.getBoundingClientRect(); // Use body for page-relative coords
-            const x = e.clientX - rect.left; // x position within the element.
-            const y = e.clientY - rect.top;  // y position within the element.
-
-            rippleEffect.style.left = `${x}px`;
-            rippleEffect.style.top = `${y}px`;
-
-            // Create a new ripple element for each click to allow multiple ripples
-            const newRipple = document.createElement('div');
-            newRipple.id = 'click-ripple'; // Keep same ID for styling, but it's a new element
-            newRipple.style.left = `${x - 15}px`; // Adjust for ripple size (15 is half of 30px)
-            newRipple.style.top = `${y - 15}px`;  // Adjust for ripple size
-            newRipple.style.width = '30px';
-            newRipple.style.height = '30px';
-            newRipple.style.animation = 'none'; // Reset animation
-            newRipple.style.opacity = '1'; // Start visible before animation
-
-            document.body.appendChild(newRipple);
-
-            // Trigger reflow to restart animation
-            void newRipple.offsetWidth;
-
-            newRipple.style.animation = 'ripple-animation 0.6s linear';
-
-            // Remove ripple after animation
-            newRipple.addEventListener('animationend', () => {
-                if (newRipple.parentNode) {
-                    newRipple.parentNode.removeChild(newRipple);
-                }
-            });
-        });
-    }
 
     // --- Carousel Functionality ---
     if (document.querySelector('.carousel')) {
@@ -150,6 +98,80 @@ document.addEventListener('DOMContentLoaded', () => {
                 carousel.addEventListener('scroll', () => requestAnimationFrame(updateCardStyles), { passive: true });
                 window.addEventListener('resize', () => requestAnimationFrame(updateCardStyles));
             }
+        });
+    }
+
+    // --- Page Sidebar Functionality ---
+    const sidebarNavs = document.querySelectorAll('.sidebar-nav');
+    if (sidebarNavs.length > 0) {
+        sidebarNavs.forEach(sidebarNav => {
+            const links = Array.from(sidebarNav.querySelectorAll('.sidebar-link'));
+            const maxPadding = 45; // Max right padding for the hovered item (px)
+            const neighborPadding = 35; // Right padding for direct neighbors (px)
+            const secondNeighborPadding = 25; // Right padding for second neighbors (px)
+            
+            const maxTextTranslate = 15; // Max text movement to the right (px)
+            const neighborTextTranslate = 8; // Text movement for neighbors (px)
+            const secondNeighborTextTranslate = 4; // Text movement for second neighbors (px)
+            
+            // Set initial styles for animation
+            links.forEach(link => {
+                // Use transition for both padding and transform
+                link.style.transition = 'padding-right 0.3s ease, box-shadow 0.2s ease, background-color 0.2s ease';
+                // link.style.width = '100%'; // Ensure full width for padding effect
+                
+                // Find the link text element
+                const linkText = link.querySelector('.link-text');
+                if (linkText) {
+                    linkText.style.transition = 'transform 0.3s ease, opacity 0.2s 0.1s ease';
+                    linkText.style.display = 'inline-block'; // Enable transform
+                }
+            });
+
+            links.forEach((link, hoveredIndex) => {
+                link.addEventListener('mouseenter', () => {
+                    links.forEach((otherLink, otherIndex) => {
+                        const distance = Math.abs(hoveredIndex - otherIndex);
+                        let rightPadding = 20; // Default padding
+                        let textTranslate = 0;
+                        
+                        if (distance === 0) {
+                            rightPadding = maxPadding;
+                            textTranslate = maxTextTranslate;
+                            otherLink.style.boxShadow = '1px 0 2px rgba(0,0,0,0.1)';
+                            otherLink.style.zIndex = '10';
+                        } else if (distance === 1) {
+                            rightPadding = neighborPadding;
+                            textTranslate = neighborTextTranslate;
+                        } else if (distance === 2) {
+                            rightPadding = secondNeighborPadding;
+                            textTranslate = secondNeighborTextTranslate;
+                        }
+                        
+                        otherLink.style.paddingRight = `${rightPadding}px`;
+                        
+                        // Move the text element
+                        const linkText = otherLink.querySelector('.link-text');
+                        if (linkText) {
+                            linkText.style.transform = `translateX(${textTranslate}px)`;
+                        }
+                    });
+                });
+                
+                link.addEventListener('mouseleave', () => {
+                    links.forEach(link => {
+                        link.style.paddingRight = '20px'; // Reset to default padding
+                        link.style.boxShadow = '';
+                        link.style.zIndex = '';
+                        
+                        // Reset text position
+                        const linkText = link.querySelector('.link-text');
+                        if (linkText) {
+                            linkText.style.transform = 'translateX(0)';
+                        }
+                    });
+                });
+            });
         });
     }
 });

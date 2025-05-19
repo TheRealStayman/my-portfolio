@@ -1,52 +1,52 @@
 ---
 title: "Projects"
-layout: "sidebar-layout.njk" # Use the new layout
+layout: "sidebar-layout.njk"
 eleventyNavigation:
   key: Projects
   parent: Home
   order: 3
 ---
 
-<div class="card-grid-wrapper">
-    <div class="card-grid">
-        <a href="/projects/indie-game/" class="card-link-wrapper">
-            <article class="card">
-                <img src="/img/project-placeholder-1.png"
-                     alt="Indie Game Title"
-                     class="card-image">
-                <div class="card-content">
-                    <h3>Indie Game Title</h3>
-                    <p>A 2D platformer game developed in Unity, featuring unique mechanics and a compelling storyline.</p>
-                    <div class="card-footer">
-                        <span class="date">Completed: Dec 2023</span>
-                        {# There is a problem here #}
-                        <a href="https://github.com/yourusername/project1"
-                           class="github-link"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           onclick="event.stopPropagation();">View on GitHub</a> 
-                    </div>
+<div class="main-content-area">
+    <header class="page-title-header">
+        <h1>{{ title }}</h1>
+    </header>
+    <main>
+        <div class="card-grid-wrapper">
+            <div class="card-grid">
+                {% for project in projects %}
+                <div class="card-link-wrapper">
+                    <article class="card">
+                        {% if project['Header Image'] %}
+                        <img src="{{ project['Header Image'].src }}"
+                             alt="{{ project['Header Image'].alt }}"
+                             class="card-image">
+                        {% else %}
+                        <img src="/img/placeholder-image.png"
+                             alt="{{ project.Title }}"
+                             class="card-image">
+                        {% endif %}
+                        <div class="card-content">
+                            <h3>{{ project.Title }}</h3>
+                            <p>{{ project['Description Brief'] }}</p>
+                            <div class="card-footer">
+                                <span class="date">{{ project.Date }}</span>
+                                {% if project.Buttons and project.Buttons[0].text == "GitHub" %}
+                                <a href="{{ project.Buttons[0].url }}"
+                                   class="github-link"
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                   onclick="event.stopPropagation();">View on GitHub</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <a href="{{ project['Card Link'] }}"
+                           class="stretched-card-link"
+                           aria-label="View project: {{ project.Title }}"></a>
+                    </article>
                 </div>
-            </article>
-        </a>
-        <a href="/projects/home-automation/" class="card-link-wrapper">
-            <article class="card">
-                <img src="/img/project-placeholder-2.png"
-                     alt="Home Automation System"
-                     class="card-image">
-                <div class="card-content">
-                    <h3>Home Automation System</h3>
-                    <p>Firmware and companion app for a custom Raspberry Pi-based home automation controller.</p>
-                    <div class="card-footer">
-                        <span class="date">Ongoing</span>
-                        <a href="https://github.com/yourusername/project2"
-                           class="github-link"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           onclick="event.stopPropagation();">View on GitHub</a>
-                    </div>
-                </div>
-            </article>
-        </a>
-    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </main>
 </div>

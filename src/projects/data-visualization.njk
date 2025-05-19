@@ -1,0 +1,80 @@
+---
+title: "Data Visualization Tool"
+layout: "project-layout.njk"
+eleventyNavigation:
+  key: Data Visualization
+  parent: Projects
+---
+
+<div class="project-container">
+    <div class="project-header">
+        <h1 class="project-title">Data Visualization Tool</h1>
+        <div class="project-meta">
+            <span>Completed: August 2023</span>
+            <span>Category: Web Development, Data Science</span>
+            <span>Technologies: D3.js, React, Python</span>
+        </div>
+    </div>
+    
+    <div class="project-description">
+        <p>
+            This interactive web application transforms complex datasets into intuitive visual representations, making data analysis accessible to non-technical users. The tool supports multiple file formats for data import and offers a wide range of visualization types that can be customized through a user-friendly interface.
+        </p>
+        <p>
+            Originally developed to help a non-profit organization understand their program impact data, the tool has evolved into a comprehensive platform that can handle various data types and visualization needs across different domains.
+        </p>
+    </div>
+    
+    <div class="project-section">
+        <h2 class="project-section-title">Features</h2>
+        <ul>
+            <li>Support for CSV, JSON, Excel, and SQL data sources</li>
+            <li>Interactive charts: bar, line, pie, scatter, heatmap, and network graphs</li>
+            <li>Drag-and-drop interface for creating visualizations</li>
+            <li>Dynamic filtering and data exploration</li>
+            <li>Real-time data updates and animations</li>
+            <li>Export options: PNG, SVG, and interactive HTML</li>
+            <li>Shareable links for collaborative analysis</li>
+        </ul>
+    </div>
+    
+    <div class="project-section">
+        <h2 class="project-section-title">Gallery</h2>
+        <div class="project-gallery">
+            <div class="project-gallery-image">
+                <img src="/img/project-data-viz-1.jpg" alt="Dashboard overview with multiple charts">
+            </div>
+            <div class="project-gallery-image">
+                <img src="/img/project-data-viz-2.jpg" alt="Interactive network graph">
+            </div>
+            <div class="project-gallery-image">
+                <img src="/img/project-data-viz-3.jpg" alt="Data import and transformation interface">
+            </div>
+            <div class="project-gallery-image">
+                <img src="/img/project-data-viz-4.jpg" alt="Mobile view of visualization">
+            </div>
+        </div>
+    </div>
+    
+    <div class="project-section">
+        <h2 class="project-section-title">Technical Details</h2>
+        <p>
+            The frontend is built with React and uses D3.js for creating dynamic, interactive visualizations. State management is handled with Redux, while styled-components provides the styling framework. For data processing, the backend uses Flask with pandas for data manipulation and scikit-learn for basic statistical analysis.
+        </p>
+        <p>
+            The application implements a microservice architecture, with separate services for data processing, user authentication, and visualization rendering. This approach ensures scalability and allows each component to be developed and updated independently.
+        </p>
+    </div>
+    
+    <div class="project-links">
+        <a href="https://github.com/yourusername/data-viz-tool" class="project-button project-button-primary" target="_blank" rel="noopener noreferrer">
+            <span>View on GitHub</span>
+        </a>
+        <a href="https://data-viz-demo.example.com" class="project-button project-button-secondary" target="_blank" rel="noopener noreferrer">
+            <span>Live Demo</span>
+        </a>
+        <a href="/downloads/data-viz-tool-installer.zip" class="project-button project-button-secondary">
+            <span>Download Desktop Version (128MB)</span>
+        </a>
+    </div>
+</div>

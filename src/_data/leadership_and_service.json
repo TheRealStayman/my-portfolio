@@ -1,0 +1,68 @@
+[
+    {
+        "Title": "IT Specialist Missionary",
+        "Subtitle": "The Church of Jesus Christ of Latter-day Saints",
+        "Date": "Sep 2020 - Oct 2022",
+        "Location": "Birmingham, AL",
+        "Description Brief": "Developed applications to allow hundreds of missionaries to report weekly statistics and data of their areas.",
+        "Description Long": "Created and coded a sophisticated reporting system using Google Sheets and Google Apps Script, resulting in a 1000% increase in missionary productivity. Authored technology guides, reports, and requests to enhance technology utilization.",
+        "Header Image": {
+            "src": "/img/missionary/header.png",
+            "alt": "Header image for the IT Specialist Missionary position"
+        },
+        "Images": [
+            {
+                "src": "/img/missionary/image1.png",
+                "alt": "Missionary image 1"
+            },
+            {
+                "src": "/img/missionary/image2.png",
+                "alt": "Missionary image 2"
+            }
+        ]
+    },
+    {
+        "Title": "Team Captain",
+        "Subtitle": "Mechanical Dragons (FRC 5974)",
+        "Date": "Sep 2018 - Jun 2019",
+        "Location": "Murray, UT",
+        "Description Brief": "Directed my high school's robotics team with an emphasis on training new members to grow into leadership roles.",
+        "Description Long": "Led high school robotics team of 30 students as Team Captain, focusing on leadership development and training new team members. Fostered a culture of openness and learning, resulting in significant team success in the FIRST Robotics Competition, achieving the second most successful year.",
+        "Header Image": {
+            "src": "/img/captain/header.png",
+            "alt": "Header image for the Team Captain position"
+        },
+        "Images": [
+            {
+                "src": "/img/captain/image1.png",
+                "alt": "Team Captain image 1"
+            },
+            {
+                "src": "/img/captain/image2.png",
+                "alt": "Team Captain image 2"
+            }
+        ]
+    },
+    {
+        "Title": "Team Programing Lead",
+        "Subtitle": "Mechanical Dragons (FRC 5974)",
+        "Date": "Oct 2015 - Sep 2018",
+        "Location": "Murray, UT",
+        "Description Brief": "Delegated massive programming projects into smaller projects and organized pairs of students to accomplish each project.",
+        "Description Long": "Spearheaded the programming division for three years, training numerous programmers to code efficiently for robot functionalities. Engineered a fast and efficient codebase, contributing to the team's highest-performing year with a playoff appearance in the Utah regional. Consistently secured the highest amount of fundraising contributions, playing a key role in annual fundraising efforts ranging from $10,000 to $15,000.",
+        "Header Image": {
+            "src": "/img/team-lead/header.png",
+            "alt": "Header image for the Team Programming Lead position"
+        },
+        "Images": [
+            {
+                "src": "/img/team-lead/image1.png",
+                "alt": "Programming Team Lead image 1"
+            },
+            {
+                "src": "/img/team-lead/image2.png",
+                "alt": "Programming Team Lead image 2"
+            }
+        ]
+    }
+]

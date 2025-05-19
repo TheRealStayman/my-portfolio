@@ -1,0 +1,215 @@
+[
+    {
+        "Title": "My Portfolio Website",
+        "Date": "May 2025 - May 2025",
+        "Category": "Web Development, UI/UX Design, Frontend Development",
+        "Technologies": "Eleventy, Nunjucks, CSS3, JavaScript (ES6+), HTML5, GitHub Pages",
+	    "Description Brief": "Created this website from scratch prioritizing interactive elements and showcasing my CSS and JavaScript abilities.",
+	    "Description Long": "This project is the very website you are currently viewing – a personal portfolio meticulously designed and developed from scratch to showcase my skills and projects. Built with the static site generator Eleventy and templated using Nunjucks, it features a unique, custom-crafted aesthetic. Heavy emphasis was placed on creating an engaging and interactive user experience through custom CSS animations and JavaScript-driven dynamic elements.",
+        "Features": [
+            "Unique, fully custom-coded visual design and layout.",
+            "Interactive home page card carousel with scroll-driven highlighting.",
+            "Custom page transition: white circle wipe originating from mouse click.",
+            "Hover-activated sidebars with smooth expansion animation.",
+            "Interactive \"pop-out\" effect for sidebar navigation links on hover.",
+            "Multi-page architecture: Home, Work Experience, Projects, Community/Service.",
+            "Dedicated individual pages for each featured project.",
+            "Static site generation using Eleventy for performance and security.",
+            "Templating with Nunjucks for modular and maintainable code.",
+            "Deployment via GitHub Pages."
+        ],
+        "Technical Details": "The foundation of this website is Eleventy, a flexible static site generator. Nunjucks was utilized as the templating language to manage reusable layouts and components, such as headers, footers, and page structures. The visual styling, including the responsive design, complex animations for the card carousel, page transitions, and interactive sidebars, was implemented entirely with custom CSS3. Vanilla JavaScript was employed to add interactivity and dynamic behaviors, such as managing the state of the carousel highlighting based on scroll position, triggering the page transition animations from the point of click, and handling the hover effects for the pop-out sidebars. The final static site is efficiently hosted on GitHub Pages.",
+        "Buttons": [
+            {
+                "text": "GitHub",
+                "url": "https://github.com/TheRealStayman/my-portfolio"
+            }
+        ],
+        "Card Link": "/projects/portfolio-website/",
+        "Navbar Text": "Portfolio Website",
+        "Header Image": {
+            "src": "/img/portfolio-website/header.png",
+            "alt": "Screenshot of the portfolio website"
+        },
+        "Images": [
+            {
+                "src": "/img/portfolio-website/desktop.png",
+                "alt": "Desktop view of the portfolio website"
+            },
+            {
+                "src": "/img/portfolio-website/mobile.png",
+                "alt": "Mobile view of the portfolio website"
+            }
+        ] 
+    },
+    {
+        "Title": "Stock Analysis v1",
+        "Date": "Apr 2024 - May 2024",
+        "Category": "Data Science, Financial Analysis, Sentiment Analysis",
+        "Technologies": "Python, yfinance, GDELT Event Database, Pandas, CSV",
+        "Description Brief": "Designed an application to perform a lightweight sentiment analysis on how stocks are influenced by words in the media.",
+        "Description Long": "This Python-based project performs sentiment analysis to investigate the correlation between global events and stock market performance. It comprises a four-stage pipeline: collecting and processing 20 years of historical stock data and daily global events (from GDELT); analyzing event headlines to assign sentiment scores to individual words based on concurrent stock price changes; and finally, offering tools to analyze these sentiment scores and predict potential stock movements based on current day's news.",
+        "Features": [
+            "Collects 20 years of daily historical stock data via Yahoo Finance for a defined list of tickers.",
+            "Calculates daily net percentage gain/loss for each stock.",
+            "Retrieves the top 10 global events daily from the GDELT Event Database for the past 20 years.",
+            "Extracts potential headlines from event URLs (post-April 2013 data).",
+            "Correlates words from event headlines with daily stock performance.",
+            "Assigns a sentiment score to each word based on its association with stock price changes.",
+            "Generates a stock-specific sentiment lexicon, mapping words to their impact scores.",
+            "Identifies stocks exhibiting the largest sentiment score variance between positive and negative words.",
+            "Determines the overall \"best\" (most positive) and \"worst\" (most negative) sentiment words across all stocks.",
+            "Predicts potential daily stock movements by analyzing current event headlines against the generated sentiment lexicon.",
+            "Modular design using four distinct Python scripts executed sequentially."
+        ],
+        "Technical Details": "The project operates through a sequence of four Python scripts. collect_stock_data.py uses the yfinance library to download two decades of daily stock data for tickers specified in \"Stock Information.csv,\" then calculates daily percentage changes. collect_event_data.py fetches daily top 10 events from the GDELT database over the same period, attempting to extract headlines from URLs in newer entries. stock_and_event_analysis.py merges these datasets, associating words from event headlines with the daily percentage change of each stock, thereby generating a sentiment score for each word relative to each stock. This output details how words historically correlated with stock increases or decreases. Finally, data_analysis.py allows users to query this sentiment data: to find stocks with high word-sentiment divergence, identify globally strong positive/negative words, or analyze current day's GDELT events to predict stock performance based on the learned sentiment scores.",
+        "Buttons": [
+            {
+                "text": "GitHub",
+                "url": "https://github.com/TheRealStayman/Stock-Analysis-v1"
+            }
+        ],
+        "Card Link": "/projects/stock-analysis-v1/",
+        "Navbar Text": "Stock Analysis v1",
+        "Header Image": {
+            "src": "/img/stock-analysis-v1/header.png",
+            "alt": "Screenshot of the stock analysis v1 application"
+        },
+        "Images": [
+            {
+                "src": "/img/stock-analysis-v1/desktop.png",
+                "alt": "Desktop view of the stock analysis v1 application"
+            },
+            {
+                "src": "/img/stock-analysis-v1/mobile.png",
+                "alt": "Mobile view of the stock analysis v1 application"
+            }
+        ]
+    },
+    {
+        "Title": "Alexandria - The Learning App for Android",
+        "Date": "Aug 2023 - Apr 2024",
+        "Category": "Mobile Development, EdTech, Android App",
+        "Technologies": "Kotlin, Android SDK, Google Firebase (Auth, Firestore/Realtime Database, Storage), UI/UX Design",
+        "Description Brief": "Conceptualized and developed an Android app to help anyone learn or teach anything.",
+        "Description Long": "Alexandria is an educational learning platform developed as an Android application, which I independently conceived, designed, and brought to an open beta release. The app empowers users to create personalized courses using internet links and PDFs, supplement them with uploaded photos, and share them with a community of learners. User feedback during the beta phase was instrumental in iterating on features, enhancing usability, and optimizing performance.",
+        "Features": [
+            "Allows users to create and manage personal accounts.",
+            "Enables users to build custom educational courses using web links and PDF documents.",
+            "Supports uploading and attaching photos to enrich course content.",
+            "Provides functionality for users to search, discover, and access courses created by others.",
+            "Features a \"save course\" option for users to bookmark content for later engagement.",
+            "Includes a user database for managing profiles and contributions.",
+            "Incorporates reporting features for content and user interactions.",
+            "Successfully launched into an open beta for user testing and feedback."
+        ],
+        "Technical Details": "Alexandria was developed natively for Android using Kotlin, ensuring a responsive and platform-optimized experience. Google Firebase was employed as the backend solution, handling user authentication, storing course data (including links, PDF references, and user-generated content) via Firestore, and managing photo uploads through Firebase Storage. The development process was iterative, spanning the entire lifecycle from initial planning and UI/UX design to coding, testing, and managing the open beta release, with a strong focus on incorporating user feedback to refine the application.",
+        "Buttons": [
+            {
+                "text": "Download on Google Play",
+                "url": ""
+            }
+        ],
+        "Card Link": "/projects/alexandria/",
+        "Navbar Text": "Alexandria",
+        "Header Image": {
+            "src": "/img/alexandria/header.png",
+            "alt": "Screenshot of the Alexandria app"
+        },
+        "Images": [
+            {
+                "src": "/img/alexandria/desktop.png",
+                "alt": "Desktop view of the Alexandria app"
+            },
+            {
+                "src": "/img/alexandria/mobile.png",
+                "alt": "Mobile view of the Alexandria app"
+            }
+        ]
+    },
+    {
+        "Title": "Face Controller",
+        "Date": "Nov 2022 - Dec 2022",
+        "Category": "Computer Vision, HCI, Assistive Technology",
+        "Technologies": "Python, MediaPipe, Tkinter, Computer Vision",
+        "Description Brief": "Analyzed face expressions and hand gestures using Google Mediapipe, sending controller inputs to a computer.",
+        "Description Long": "This project introduces an innovative human-computer interaction system that translates facial expressions and hand gestures into keyboard inputs. Using Google's MediaPipe for real-time eyebrow movement analysis (via facial landmarks) and hand gesture recognition (via hand landmarks), the application allows users to trigger customizable key presses. A user-friendly GUI, built with Python's Tkinter library, facilitates calibration, personalization, and operational control.",
+        "Features": [
+            "Eyebrow movement triggers different configurable key presses.",
+            "Hand gestures trigger different configurable key presses.",
+            "User-friendly GUI built with Python Tkinter.",
+            "Calibration mode for personalized gesture recognition.",
+            "Adjustable sensitivity thresholds for detection.",
+            "Customizable mapping of gestures to specific key presses.",
+            "Live camera feed displayed within the GUI.",
+            "Real-time visualization of facial and hand landmarks.",
+            "On-screen display of detected gestures and corresponding key outputs."
+        ],
+        "Technical Details": "The system utilizes Google's MediaPipe library to perform real-time analysis of a user's face and hands via a webcam. The Facial Landmark module detects and tracks key points on the face, enabling the interpretation of eyebrow movements (e.g., vertical displacement of eyebrow landmarks). Similarly, the Hand Landmark module identifies finger configurations. These detected movements are then compared against user-defined thresholds. If a movement surpasses its threshold, the system programmatically triggers a pre-assigned key press. The entire application is wrapped in a Python Tkinter GUI, which handles user inputs for calibration (setting baseline expressions/gestures), threshold adjustments for sensitivity, key binding customization, and provides visual feedback including the camera stream, landmark overlays, and activated key presses.",
+        "Buttons": [
+            {
+                "text": "GitHub",
+                "url": "https://github.com/TheRealStayman/expressionController"
+            },
+            {
+                "text": "Download",
+                "url": "https://github.com/TheRealStayman/expressionController/releases/tag/v1.0.0"
+            }
+        ],
+        "Card Link": "/projects/face-controller/",
+        "Navbar Text": "Face Controller",
+        "Header Image": {
+            "src": "/img/face-controller/header.png",
+            "alt": "Screenshot of the Face Controller application"
+        },
+        "Images": [
+            {
+                "src": "/img/face-controller/desktop.png",
+                "alt": "Desktop view of the Face Controller application"
+            },
+            {
+                "src": "/img/face-controller/mobile.png",
+                "alt": "Mobile view of the Face Controller application"
+            }
+        ]
+    },
+    {
+        "Title": "MIDI Reader",
+        "Date": "May 2018 - Jun 2018",
+        "Category": "Digital Music, Data Parsing, Software Development",
+        "Technologies": "MIDI (file format), Hexadecimal Data Parsing, Python",
+        "Description Brief": "Composed a program to deconstruct MIDI files and give instructions to robotically controlled instruments.",
+        "Description Long": "As a collaborative high school project, we developed a MIDI reader designed to interpret the hexadecimal data within MIDI files. The primary goal was to extract musical note and timing information, with the ultimate aim of sending these instructions to robotic musicians. While the physical robots were never completed due to an unrelated lab incident (a 3D printer malfunction), the MIDI reader component was successfully implemented, accurately parsing files and outputting the note and timing data to the console for verification.",
+        "Features": [
+            "Parses standard MIDI (.mid) files.",
+            "Reads and interprets raw hexadecimal data from MIDI tracks.",
+            "Extracts MIDI note events (note on/off, pitch, velocity).",
+            "Calculates precise timing for note events (delta-times).",
+            "Outputs structured note and timing data to the console.",
+            "Designed as the data-processing core for robotic instrument control."
+        ],
+        "Technical Details": "The core of this project involved low-level file parsing. The program was designed to open a MIDI file, read its contents as hexadecimal data, and interpret the MIDI message specifications. This included identifying event types (like \"note on\" or \"note off\" messages), parsing the associated data bytes for parameters such as pitch (note value) and velocity (how hard the note is played), and crucially, calculating the precise timing for each event based on the MIDI file's delta-time system. The extracted information, representing a sequence of musical instructions, was then formatted and printed to the console, demonstrating the correct interpretation of the MIDI data stream. This was the first critical step in a larger system intended to automate musical performance by robots.",
+        "Buttons": [
+            {
+                "text": "GitHub",
+                "url": "https://github.com/TheRealStayman/MIDI_Reader"
+            }
+        ],
+        "Card Link": "/projects/midi-reader/",
+        "Navbar Text": "MIDI Reader",
+        "Header Image": {
+            "src": "/img/midi-reader/header.png",
+            "alt": "Screenshot of the MIDI Reader application"
+        },
+        "Images": [
+            {
+                "src": "/img/midi-reader/desktop.png",
+                "alt": "Desktop view of the MIDI Reader application"
+            },
+            {
+                "src": "/img/midi-reader/mobile.png",
+                "alt": "Mobile view of the MIDI Reader application"
+            }
+        ]
+    }
+]

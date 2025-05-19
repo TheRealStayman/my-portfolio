@@ -1,0 +1,90 @@
+---
+title: "ML Image Recognition"
+layout: "project-layout.njk"
+eleventyNavigation:
+  key: ML Image Recognition
+  parent: Projects
+---
+
+<div class="project-container">
+    <div class="project-header">
+        <h1 class="project-title">ML Image Recognition System</h1>
+        <div class="project-meta">
+            <span>Completed: March 2023</span>
+            <span>Category: Machine Learning, Computer Vision</span>
+            <span>Technologies: PyTorch, TensorFlow, OpenCV</span>
+        </div>
+    </div>
+    
+    <div class="project-description">
+        <p>
+            This machine learning system can identify and classify objects in images with high accuracy. Leveraging deep learning techniques and a custom-trained convolutional neural network, the system can recognize over 1,000 different object categories in real-time, even in challenging lighting conditions or with partial occlusion.
+        </p>
+        <p>
+            The project began as a research initiative to improve image classification for accessibility applications, but has evolved into a versatile system that can be deployed in various contexts from retail inventory management to assistive technology for visually impaired users.
+        </p>
+    </div>
+    
+    <div class="project-section">
+        <h2 class="project-section-title">Features</h2>
+        <ul>
+            <li>Real-time object detection and classification</li>
+            <li>95.8% accuracy on benchmark datasets</li>
+            <li>Support for image and video input</li>
+            <li>Optimized for both desktop and mobile deployment</li>
+            <li>Transfer learning capabilities for custom object classes</li>
+            <li>Lightweight model version for edge devices</li>
+            <li>API for integration with other applications</li>
+        </ul>
+    </div>
+    
+    <div class="project-section">
+        <h2 class="project-section-title">Gallery</h2>
+        <div class="project-gallery">
+            <div class="project-gallery-image">
+                <img src="/img/project-ml-1.jpg" alt="Object detection in a busy street scene">
+            </div>
+            <div class="project-gallery-image">
+                <img src="/img/project-ml-2.jpg" alt="Training interface showing model performance metrics">
+            </div>
+            <div class="project-gallery-image">
+                <img src="/img/project-ml-3.jpg" alt="Mobile app implementation">
+            </div>
+            <div class="project-gallery-image">
+                <img src="/img/project-ml-4.jpg" alt="Heat map visualization of model attention">
+            </div>
+        </div>
+    </div>
+    
+    <div class="project-section">
+        <h2 class="project-section-title">Technical Details</h2>
+        <p>
+            The core model is based on a modified EfficientNet architecture, trained on a combined dataset of ImageNet and custom-collected images. Data augmentation techniques were extensively used to improve model robustness, including random cropping, rotation, color jittering, and mixup.
+        </p>
+        <p>
+            Model training was performed using PyTorch on a multi-GPU setup, with hyperparameter optimization via Bayesian search. For deployment, TensorFlow Lite and ONNX Runtime are used to optimize performance across different platforms. The system includes a custom inference engine that can process up to 60 frames per second on modern hardware.
+        </p>
+        <p>
+            To ensure privacy, all image processing is performed locally on the user's device by default, though cloud processing options are available for more compute-intensive tasks.
+        </p>
+    </div>
+    
+    <div class="project-section">
+        <h2 class="project-section-title">Research Paper</h2>
+        <p>
+            The research findings and technical approach were published in the International Conference on Computer Vision (ICCV) 2023. The paper, titled "Efficient Multi-Context Object Recognition for Resource-Constrained Environments," details the architectural innovations and training methodology.
+        </p>
+    </div>
+    
+    <div class="project-links">
+        <a href="https://github.com/yourusername/ml-image-recognition" class="project-button project-button-primary" target="_blank" rel="noopener noreferrer">
+            <span>View on GitHub</span>
+        </a>
+        <a href="/downloads/ml-image-recognition-demo.zip" class="project-button project-button-secondary">
+            <span>Download Demo Application (210MB)</span>
+        </a>
+        <a href="/papers/efficient-multi-context-object-recognition.pdf" class="project-button project-button-secondary">
+            <span>Download Research Paper (PDF)</span>
+        </a>
+    </div>
+</div>

@@ -1,29 +1,57 @@
 ---
 title: "Leadership and Service"
-layout: "sidebar-layout.njk" # Use the new layout
+layout: "sidebar-layout.njk"
 eleventyNavigation:
   key: Leadership & Service
   parent: Home
   order: 4
 ---
 
-<div class="card-grid-wrapper">
-    <div class="card-grid">
-        <a href="/leadership/coding-club-president/" class="card-link-wrapper">
-            <article class="card">
-                <img src="/img/leadership-placeholder-1.png"
-                     alt="Coding Club Presidency"
-                     class="card-image">
-                <div class="card-content">
-                    <h3>President, Coding Club</h3>
-                    <p class="card-subtitle">University of Excellence</p>
-                    <p>Led weekly meetings, organized coding competitions, and managed club finances for over 100 members.</p>
-                    <div class="card-footer">
-                        <span class="location">University Campus</span>
-                        <span class="date">Sep 20XX - May 20XY</span>
+<div class="main-content-area">
+    <header class="page-title-header">
+        <h1>{{ title }}</h1>
+    </header>
+    <main>
+        <div class="timeline-wrapper">
+            <div class="timeline-container">
+                {% for item in leadership_and_service %}
+                <div class="timeline-item">
+                    <div class="timeline-date">{{ item.Date }}</div>
+                    <div class="timeline-item-content">
+                        <div class="timeline-header">
+                            {% if item['Header Image'] %}
+                            <img src="{{ item['Header Image'].src }}"
+                                 alt="{{ item['Header Image'].alt }}"
+                                 class="timeline-header-image">
+                            {% else %}
+                            <img src="/img/placeholder-image.png"
+                                 alt="{{ item.Title }}"
+                                 class="timeline-header-image">
+                            {% endif %}
+                            <div class="timeline-header-content">
+                                <h2>{{ item.Title }}</h2>
+                                <div class="subtitle">{{ item.Subtitle }}</div>
+                                <div class="location">📍 {{ item.Location }}</div>
+                            </div>
+                        </div>
+                        <div class="timeline-body">
+                            <div class="timeline-description">
+                                <p>{{ item['Description Long'] }}</p>
+                            </div>
+                            {% if item.Images and item.Images.length > 0 %}
+                            <div class="timeline-gallery">
+                                {% for image in item.Images %}
+                                <img src="{{ image.src }}"
+                                     alt="{{ image.alt }}"
+                                     class="gallery-image">
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
-            </article>
-        </a>
-    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </main>
 </div>

@@ -1,0 +1,68 @@
+[
+    {
+        "Title": "Computer Science Tutor",
+        "Subtitle": "Ensign College",
+        "Date": "Sep 2024 - Present",
+        "Location": "Salt Lake City, UT",
+	    "Description Brief": "Coached students to better understand and apply programming principles in their classes.",
+	    "Description Long": "Tutored college students in core computer science subjects, including introductory and advanced object-oriented programming, algorithms and data structures, and software engineering principles, resulting in improved student performance. Assisted students with debugging, code development, and logical problem-solving in Java, Python, HTML, CSS, and JavaScript, utilizing GitHub for version control and fostering best practices for software development.",
+        "Header Image": {
+            "src": "/img/cs-tutor/header.png",
+            "alt": "Header image for the Computer Science Tutor position"
+        },
+        "Images": [
+            {
+                "src": "/img/cs-tutor/image1.png",
+                "alt": "Computer Science image 1"
+            },
+            {
+                "src": "/img/cs-tutor/image2.png",
+                "alt": "Computer Science image 2"
+            }
+        ]
+    },
+    {
+        "Title": "Custodian",
+        "Subtitle": "Ensign College",
+        "Date": "Apr 2024 - Present",
+        "Location": "Salt Lake City, UT",
+        "Description Brief": "Worked hard to clean and adapt a cleaning plan to many different unique buildings and areas.",
+        "Description Long": "Consistently received top marks in managerial evaluations for exceptional efficiency, thoroughness, and dedication in maintaining clean and sanitary environments, including bathrooms and offices. Demonstrated strong time management and organizational skills, consistently completing tasks on time and exceeding expectations, showcasing attention to detail and commitment to high standards.",
+        "Header Image": {
+            "src": "/img/custodian/header.png",
+            "alt": "Header image for the Custodian position"
+        },
+        "Images": [
+            {
+                "src": "/img/custodian/image1.png",
+                "alt": "Custodian image 1"
+            },
+            {
+                "src": "/img/custodian/image2.png",
+                "alt": "Custodian image 2"
+            }
+        ]
+    },
+    {
+        "Title": "Software Engineer Intern",
+        "Subtitle": "Hazelcast",
+        "Date": "Jan 2023 - Jul 2023",
+        "Location": "Remote",
+        "Description Brief": "Developed and perfected demos that showcased cutting edge data processing and app development.",
+        "Description Long": "Developed a showcase game demonstrating the capabilities of the company's real-time data streaming service, facilitating seamless communication between users and servers. Utilized Unreal Engine 4 for game development, creating assets, animations, and implementing various game mechanics through programming.",
+        "Header Image": {
+            "src": "/img/hazelcast/header.png",
+            "alt": "Header image for the Software Engineer Intern position"
+        },
+        "Images": [
+            {
+                "src": "/img/hazelcast/image1.png",
+                "alt": "Hazelcast image 1"
+            },
+            {
+                "src": "/img/hazelcast/image2.png",
+                "alt": "Hazelcast image 2"
+            }
+        ]
+    }
+]

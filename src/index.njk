@@ -79,146 +79,41 @@ layout: "layout.njk"
     </div>
     <div class="carousel" id="work-experience-carousel">
         <div class="first-card"></div>
-        <div class="card">
-            <img src="/img/work-placeholder-1.png"
-                 alt="Work Experience 1"
+        {% for job in work_experience %}
+        {% set imageSources = "" %}
+        {% if job.Images %}
+            {% for image in job.Images %}
+                {% if loop.first %}
+                    {% set imageSources = image.src %}
+                {% else %}
+                    {% set imageSources = imageSources + "," + image.src %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        <div class="card" 
+             data-category="work"
+             data-full-description="{{ job['Description Long'] }}"
+             data-additional-images="{{ imageSources }}">
+            {% if job['Header Image'] %}
+            <img src="{{ job['Header Image'].src }}"
+                 alt="{{ job['Header Image'].alt }}"
                  class="card-image">
+            {% else %}
+            <img src="/img/placeholder-image.png"
+                 alt="{{ job.Title }}"
+                 class="card-image">
+            {% endif %}
             <div class="card-content">
-                <h3>Senior Firmware Engineer</h3>
-                <p class="card-subtitle">Innovatech Solutions</p>
-                <p>Developed and optimized firmware for cutting-edge IoT devices, focusing on performance and power efficiency.</p>
+                <h3>{{ job.Title }}</h3>
+                <p class="card-subtitle">{{ job.Subtitle }}</p>
+                <p>{{ job['Description Brief'] }}</p>
                 <div class="card-footer">
-                    <span class="location">San Francisco, CA</span>
-                    <span class="date">Jan 2022 - Present</span>
+                    <span class="location">{{ job.Location }}</span>
+                    <span class="date">{{ job.Date }}</span>
                 </div>
             </div>
         </div>
-        <div class="card">
-            <img src="/img/work-placeholder-2.png"
-                 alt="Work Experience 2"
-                 class="card-image">
-            <div class="card-content">
-                <h3>Software Developer</h3>
-                <p class="card-subtitle">TechGenius Corp</p>
-                <p>Contributed to the development of a large-scale enterprise application using agile methodologies.</p>
-                <div class="card-footer">
-                    <span class="location">Austin, TX</span>
-                    <span class="date">Jun 2020 - Dec 2021</span>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <img src="/img/work-placeholder-1.png"
-                 alt="Work Experience 1"
-                 class="card-image">
-            <div class="card-content">
-                <h3>Senior Firmware Engineer</h3>
-                <p class="card-subtitle">Innovatech Solutions</p>
-                <p>Developed and optimized firmware</p>
-                <div class="card-footer">
-                    <span class="location">San Francisco, CA</span>
-                    <span class="date">Jan 2022 - Present</span>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <img src="/img/work-placeholder-2.png"
-                 alt="Work Experience 2"
-                 class="card-image">
-            <div class="card-content">
-                <h3>Software Developer</h3>
-                <p class="card-subtitle">TechGenius Corp</p>
-                <p>Contributed to the development of a large-scale enterprise application using agile methodologies.</p>
-                <div class="card-footer">
-                    <span class="location">Austin, TX</span>
-                    <span class="date">Jun 2020 - Dec 2021</span>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <img src="/img/work-placeholder-1.png"
-                 alt="Work Experience 1"
-                 class="card-image">
-            <div class="card-content">
-                <h3>Senior Firmware Engineer</h3>
-                <p class="card-subtitle">Innovatech Solutions</p>
-                <p>Developed and optimized firmware for cutting-edge IoT devices, focusing on performance and power efficiency.</p>
-                <div class="card-footer">
-                    <span class="location">San Francisco, CA</span>
-                    <span class="date">Jan 2022 - Present</span>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <img src="/img/work-placeholder-2.png"
-                 alt="Work Experience 2"
-                 class="card-image">
-            <div class="card-content">
-                <h3>Software Developer</h3>
-                <p class="card-subtitle">TechGenius Corp</p>
-                <p>Contributed to the development of a large-scale enterprise application using agile methodologies.</p>
-                <div class="card-footer">
-                    <span class="location">Austin, TX</span>
-                    <span class="date">Jun 2020 - Dec 2021</span>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <img src="/img/work-placeholder-1.png"
-                 alt="Work Experience 1"
-                 class="card-image">
-            <div class="card-content">
-                <h3>Senior Firmware Engineer</h3>
-                <p class="card-subtitle">Innovatech Solutions</p>
-                <p>Developed and optimized firmware for cutting-edge IoT devices, focusing on performance and power efficiency.</p>
-                <div class="card-footer">
-                    <span class="location">San Francisco, CA</span>
-                    <span class="date">Jan 2022 - Present</span>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <img src="/img/work-placeholder-2.png"
-                 alt="Work Experience 2"
-                 class="card-image">
-            <div class="card-content">
-                <h3>Software Developer</h3>
-                <p class="card-subtitle">TechGenius Corp</p>
-                <p>Contributed to the development of a large-scale enterprise application using agile methodologies.</p>
-                <div class="card-footer">
-                    <span class="location">Austin, TX</span>
-                    <span class="date">Jun 2020 - Dec 2021</span>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <img src="/img/work-placeholder-1.png"
-                 alt="Work Experience 1"
-                 class="card-image">
-            <div class="card-content">
-                <h3>Senior Firmware Engineer</h3>
-                <p class="card-subtitle">Innovatech Solutions</p>
-                <p>Developed and optimized firmware for cutting-edge IoT devices, focusing on performance and power efficiency.</p>
-                <div class="card-footer">
-                    <span class="location">San Francisco, CA</span>
-                    <span class="date">Jan 2022 - Present</span>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <img src="/img/work-placeholder-2.png"
-                 alt="Work Experience 2"
-                 class="card-image">
-            <div class="card-content">
-                <h3>Software Developer</h3>
-                <p class="card-subtitle">TechGenius Corp</p>
-                <p>Contributed to the development of a large-scale enterprise application using agile methodologies.</p>
-                <div class="card-footer">
-                    <span class="location">Austin, TX</span>
-                    <span class="date">Jun 2020 - Dec 2021</span>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
         <div class="last-card"></div>
     </div>
 </div>
@@ -229,38 +124,33 @@ layout: "layout.njk"
     </div>
     <div class="carousel" id="projects-carousel">
         <div class="first-card"></div>
+        {% for project in projects %}
         <div class="card">
-            <img src="/img/project-placeholder-1.png"
-                 alt="Project 1"
+            {% if project['Header Image'] %}
+            <img src="{{ project['Header Image'].src }}"
+                 alt="{{ project['Header Image'].alt }}"
                  class="card-image">
+            {% else %}
+            <img src="/img/placeholder-image.png"
+                 alt="{{ project.Title }}"
+                 class="card-image">
+            {% endif %}
             <div class="card-content">
-                <h3>Indie Game Title</h3>
-                <p>A 2D platformer game developed in Unity, featuring unique mechanics and a compelling storyline.</p>
+                <h3>{{ project.Title }}</h3>
+                <p>{{ project['Description Brief'] }}</p>
                 <div class="card-footer">
-                    <span class="date">Completed: Dec 2023</span>
-                    <a href="https://github.com/yourusername/project1"
-                       class="github-link"
-                       target="_blank"
-                       rel="noopener noreferrer">View on GitHub</a>
+                    <span class="date">{{ project.Date }}</span>
+                    {% if project.Buttons and project.Buttons[0].text == "GitHub" %}
+                    <a href="{{ project.Buttons[0].url }}"
+                        class="github-link"
+                        target="_blank"
+                        rel="noopener noreferrer">View on GitHub</a>
+                    {% endif %}
                 </div>
             </div>
+            <a href="{{ project['Card Link'] }}" class="stretched-card-link" aria-label="View project: {{ project.Title }}"></a>
         </div>
-        <div class="card">
-            <img src="/img/project-placeholder-2.png"
-                 alt="Project 2"
-                 class="card-image">
-            <div class="card-content">
-                <h3>Home Automation System</h3>
-                <p>Firmware and companion app for a custom Raspberry Pi-based home automation controller.</p>
-                <div class="card-footer">
-                    <span class="date">Ongoing</span>
-                    <a href="https://github.com/yourusername/project2"
-                       class="github-link"
-                       target="_blank"
-                       rel="noopener noreferrer">View on GitHub</a>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
         <div class="last-card"></div>
     </div>
 </div>
@@ -271,20 +161,41 @@ layout: "layout.njk"
     </div>
     <div class="carousel" id="leadership-carousel">
         <div class="first-card"></div>
-        <div class="card">
-            <img src="/img/leadership-placeholder-1.png"
-                 alt="Leadership 1"
+        {% for item in leadership_and_service %}
+        {% set imageSources = "" %}
+        {% if item.Images %}
+            {% for image in item.Images %}
+                {% if loop.first %}
+                    {% set imageSources = image.src %}
+                {% else %}
+                    {% set imageSources = imageSources + "," + image.src %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        <div class="card"
+             data-category="leadership"
+             data-full-description="{{ item['Description Long'] }}"
+             data-additional-images="{{ imageSources }}">
+            {% if item['Header Image'] %}
+            <img src="{{ item['Header Image'].src }}"
+                 alt="{{ item['Header Image'].alt }}"
                  class="card-image">
+            {% else %}
+            <img src="/img/placeholder-image.png"
+                 alt="{{ item.Title }}"
+                 class="card-image">
+            {% endif %}
             <div class="card-content">
-                <h3>President, Coding Club</h3>
-                <p class="card-subtitle">University of Excellence</p>
-                <p>Led weekly meetings, organized coding competitions, and managed club finances for over 100 members.</p>
+                <h3>{{ item.Title }}</h3>
+                <p class="card-subtitle">{{ item.Subtitle }}</p>
+                <p>{{ item['Description Brief'] }}</p>
                 <div class="card-footer">
-                    <span class="location">University Campus</span>
-                    <span class="date">Sep 20XX - May 20XY</span>
+                    <span class="location">{{ item.Location }}</span>
+                    <span class="date">{{ item.Date }}</span>
                 </div>
             </div>
         </div>
+        {% endfor %}
         <div class="last-card"></div>
     </div>
 </div>
@@ -295,18 +206,28 @@ layout: "layout.njk"
     </div>
     <div class="carousel" id="accomplishments-carousel">
         <div class="first-card"></div>
+        {% for accomplishment in accomplishments %}
         <div class="card no-pop">
-            <img src="/img/accomplishment-placeholder-1.png"
-                 alt="Accomplishment 1"
+            <img src="/img/accomplishment-placeholder.png"
+                 alt="{{ accomplishment.Title }}"
                  class="card-image">
             <div class="card-content">
-                <h3>Hackathon Winner - Best Technical Solution</h3>
-                <p>Awarded for developing an innovative solution to a real-world problem in a 24-hour coding challenge.</p>
+                <h3>{{ accomplishment.Title }}</h3>
+                <p>{{ accomplishment['Description Brief'] }}</p>
                 <div class="card-footer">
-                    <span class="date">Mar 20XX</span>
+                    {% if accomplishment.Date %}
+                    <span class="date">{{ accomplishment.Date }}</span>
+                    {% endif %}
+                    {% if accomplishment['Card Link'] %}
+                    <a href="{{ accomplishment['Card Link'] }}" 
+                       class="github-link" 
+                       target="_blank" 
+                       rel="noopener noreferrer">Learn More</a>
+                    {% endif %}
                 </div>
             </div>
         </div>
+        {% endfor %}
         <div class="last-card"></div>
     </div>
 </div>

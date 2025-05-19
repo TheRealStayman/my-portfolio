@@ -1,155 +1,57 @@
 ---
 title: "Work Experience"
-layout: "sidebar-layout.njk" # Use the new layout
+layout: "sidebar-layout.njk"
 eleventyNavigation:
-  key: Work Experience # Optional: for Eleventy Navigation plugin if used later
+  key: Work Experience
   parent: Home
   order: 2
 ---
 
-<div class="card-grid-wrapper">
-    <div class="card-grid">
-        <a href="/work/senior-firmware-engineer/" class="card-link-wrapper">
-            <article class="card">
-                <img src="/img/work-placeholder-1.png"
-                     alt="Innovatech Solutions"
-                     class="card-image">
-                <div class="card-content">
-                    <h3>Senior Firmware Engineer</h3>
-                    <p class="card-subtitle">Innovatech Solutions</p>
-                    <p>Developed and optimized firmware for cutting-edge IoT devices, focusing on performance and power efficiency.</p>
-                    <div class="card-footer">
-                        <span class="location">San Francisco, CA</span>
-                        <span class="date">Jan 2022 - Present</span>
+<div class="main-content-area">
+    <header class="page-title-header">
+        <h1>{{ title }}</h1>
+    </header>
+    <main>
+        <div class="timeline-wrapper">
+            <div class="timeline-container">
+                {% for job in work_experience %}
+                <div class="timeline-item">
+                    <div class="timeline-date">{{ job.Date }}</div>
+                    <div class="timeline-item-content">
+                        <div class="timeline-header">
+                            {% if job['Header Image'] %}
+                            <img src="{{ job['Header Image'].src }}"
+                                 alt="{{ job['Header Image'].alt }}"
+                                 class="timeline-header-image">
+                            {% else %}
+                            <img src="/img/placeholder-image.png"
+                                 alt="{{ job.Title }}"
+                                 class="timeline-header-image">
+                            {% endif %}
+                            <div class="timeline-header-content">
+                                <h2>{{ job.Title }}</h2>
+                                <div class="subtitle">{{ job.Subtitle }}</div>
+                                <div class="location">📍 {{ job.Location }}</div>
+                            </div>
+                        </div>
+                        <div class="timeline-body">
+                            <div class="timeline-description">
+                                <p>{{ job['Description Long'] }}</p>
+                            </div>
+                            {% if job.Images and job.Images.length > 0 %}
+                            <div class="timeline-gallery">
+                                {% for image in job.Images %}
+                                <img src="{{ image.src }}"
+                                     alt="{{ image.alt }}"
+                                     class="gallery-image">
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
-            </article>
-        </a>
-        <a href="/work/software-developer/" class="card-link-wrapper">
-            <article class="card">
-                <img src="/img/work-placeholder-2.png"
-                     alt="TechGenius Corp"
-                     class="card-image">
-                <div class="card-content">
-                    <h3>Software Developer</h3>
-                    <p class="card-subtitle">TechGenius Corp</p>
-                    <p>Contributed to the development of a large-scale enterprise application using agile methodologies.</p>
-                    <div class="card-footer">
-                        <span class="location">Austin, TX</span>
-                        <span class="date">Jun 2020 - Dec 2021</span>
-                    </div>
-                </div>
-            </article>
-        </a>
-        <a href="/work/senior-firmware-engineer/" class="card-link-wrapper">
-            <article class="card">
-                <img src="/img/work-placeholder-1.png"
-                     alt="Innovatech Solutions"
-                     class="card-image">
-                <div class="card-content">
-                    <h3>Senior Firmware Engineer</h3>
-                    <p class="card-subtitle">Innovatech Solutions</p>
-                    <p>Developed and optimized firmware for cutting-edge IoT devices, focusing on performance and power efficiency.</p>
-                    <div class="card-footer">
-                        <span class="location">San Francisco, CA</span>
-                        <span class="date">Jan 2022 - Present</span>
-                    </div>
-                </div>
-            </article>
-        </a>
-        <a href="/work/software-developer/" class="card-link-wrapper">
-            <article class="card">
-                <img src="/img/work-placeholder-2.png"
-                     alt="TechGenius Corp"
-                     class="card-image">
-                <div class="card-content">
-                    <h3>Software Developer</h3>
-                    <p class="card-subtitle">TechGenius Corp</p>
-                    <p>Contributed to the development of a large-scale enterprise application using agile methodologies.</p>
-                    <div class="card-footer">
-                        <span class="location">Austin, TX</span>
-                        <span class="date">Jun 2020 - Dec 2021</span>
-                    </div>
-                </div>
-            </article>
-        </a>
-        <a href="/work/senior-firmware-engineer/" class="card-link-wrapper">
-            <article class="card">
-                <img src="/img/work-placeholder-1.png"
-                     alt="Innovatech Solutions"
-                     class="card-image">
-                <div class="card-content">
-                    <h3>Senior Firmware Engineer</h3>
-                    <p class="card-subtitle">Innovatech Solutions</p>
-                    <p>Developed and optimized firmware for cutting-edge IoT devices, focusing on performance and power efficiency.</p>
-                    <div class="card-footer">
-                        <span class="location">San Francisco, CA</span>
-                        <span class="date">Jan 2022 - Present</span>
-                    </div>
-                </div>
-            </article>
-        </a>
-        <a href="/work/software-developer/" class="card-link-wrapper">
-            <article class="card">
-                <img src="/img/work-placeholder-2.png"
-                     alt="TechGenius Corp"
-                     class="card-image">
-                <div class="card-content">
-                    <h3>Software Developer</h3>
-                    <p class="card-subtitle">TechGenius Corp</p>
-                    <p>Contributed to the development of a large-scale enterprise application using agile methodologies.</p>
-                    <div class="card-footer">
-                        <span class="location">Austin, TX</span>
-                        <span class="date">Jun 2020 - Dec 2021</span>
-                    </div>
-                </div>
-            </article>
-        </a>
-        <a href="/work/senior-firmware-engineer/" class="card-link-wrapper">
-            <article class="card">
-                <img src="/img/work-placeholder-1.png"
-                     alt="Innovatech Solutions"
-                     class="card-image">
-                <div class="card-content">
-                    <h3>Senior Firmware Engineer</h3>
-                    <p class="card-subtitle">Innovatech Solutions</p>
-                    <p>Developed and optimized firmware for cutting-edge IoT devices, focusing on performance and power efficiency.</p>
-                    <div class="card-footer">
-                        <span class="location">San Francisco, CA</span>
-                        <span class="date">Jan 2022 - Present</span>
-                    </div>
-                </div>
-            </article>
-        </a>
-        <a href="/work/software-developer/" class="card-link-wrapper">
-            <article class="card">
-                <img src="/img/work-placeholder-2.png"
-                     alt="TechGenius Corp"
-                     class="card-image">
-                <div class="card-content">
-                    <h3>Software Developer</h3>
-                    <p class="card-subtitle">TechGenius Corp</p>
-                    <p>Contributed to the development of a large-scale enterprise application using agile methodologies.</p>
-                    <div class="card-footer">
-                        <span class="location">Austin, TX</span>
-                        <span class="date">Jun 2020 - Dec 2021</span>
-                    </div>
-                </div>
-            </article>
-        </a>
-        <a href="/work/another-job/" class="card-link-wrapper">
-            <article class="card">
-                <img src="/img/placeholder-image.png" alt="Placeholder" class="card-image">
-                <div class="card-content">
-                    <h3>Another Role</h3>
-                    <p class="card-subtitle">Some Company</p>
-                    <p>Brief description of responsibilities and achievements in this role.</p>
-                    <div class="card-footer">
-                        <span class="location">City, State</span>
-                        <span class="date">Month Year - Month Year</span>
-                    </div>
-                </div>
-            </article>
-        </a>
-    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </main>
 </div>

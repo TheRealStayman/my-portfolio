@@ -1,0 +1,67 @@
+---
+layout: "project-layout.njk"
+pagination:
+  data: projects
+  size: 1
+  alias: project
+permalink: "{{ project['Card Link'] | replace('^/', '') }}"
+eleventyComputed:
+  title: "{{ project.Title }}"
+---
+
+<div class="project-container">
+    <div class="project-header">
+        <h1 class="project-title">{{ project.Title }}</h1>
+        <div class="project-meta">
+            <span>Date: {{ project.Date }}</span>
+            <span>Category: {{ project.Category }}</span>
+            <span>Technologies: {{ project.Technologies }}</span>
+        </div>
+    </div>
+    
+    <div class="project-description">
+        <p>{{ project['Description Long'] }}</p>
+    </div>
+    
+    {% if project.Features %}
+    <div class="project-section">
+        <h2 class="project-section-title">Features</h2>
+        <ul>
+            {% for feature in project.Features %}
+            <li>{{ feature }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+    
+    {% if project.Images %}
+    <div class="project-section">
+        <h2 class="project-section-title">Gallery</h2>
+        <div class="project-gallery">
+            {% for image in project.Images %}
+            <div class="project-gallery-image">
+                <img src="{{ image.src }}" alt="{{ image.alt }}">
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+    
+    {% if project['Technical Details'] %}
+    <div class="project-section">
+        <h2 class="project-section-title">Technical Details</h2>
+        <p>{{ project['Technical Details'] }}</p>
+    </div>
+    {% endif %}
+    
+    {% if project.Buttons and project.Buttons.length > 0 %}
+    <div class="project-links">
+        {% for button in project.Buttons %}
+        <a href="{{ button.url }}" class="project-button {% if loop.first %}project-button-primary{% else %}project-button-secondary{% endif %}" 
+           {% if 'http' in button.url %}target="_blank" rel="noopener noreferrer"{% endif %}>
+            <span>{{ button.text }}</span>
+        </a>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
