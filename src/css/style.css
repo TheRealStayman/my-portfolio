@@ -3,7 +3,7 @@
     --font-primary: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     --color-text: #333;
     --color-bg-light-gray: #fcfcfc;
-    --color-bg-light-blue: #97e2fc;
+    --color-bg-light-blue: #0095ff96; /* #97e2fc | #0094ff | Gradient light blue: #53eeff*/
     --color-white: #ffffff;
     --color-header-bg: var(--color-white);
     --color-divider: #cccccc;
@@ -85,67 +85,65 @@ h3 {
     background-color: var(--color-bg-light-gray);
     /* Light gray banner for homepage if body bg is different */
     width: 100%;
-    aspect-ratio: 3.2 / 1;
+    aspect-ratio: 3 / 1;
     /* Width to height ratio 3.2:1 */
     display: flex;
     align-items: center;
     /* Vertically center content */
+    position: relative; /* Add position for absolute positioning of child elements */
+    overflow: hidden; /* Prevent any overflow */
 }
 
 .banner-content {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start; /* Changed from space-between to align content to the left */
     /* Text block left, image right */
     align-items: center;
     /* Vertically center items within banner-content */
     width: 100%;
-    padding: 0 var(--padding-global-lr);
-    /* 96px padding left/right */
+    padding-left: calc(var(--padding-global-lr) / 2); /* Only add padding to the left */
+    padding-right: 0; /* No padding on the right */
     box-sizing: border-box;
 }
 
 .banner-text {
-    flex: 1;
+    flex: 0 1 60%; /* Don't grow, can shrink, start at 60% width */
     /* Allow text block to take available space */
     padding: var(--padding-text-block);
     /* 48px padding on all sides for text */
     text-align: left;
-}
-
-.banner-text h1 {
-    font-size: 2.5em;
-    margin-bottom: 0.25em;
-}
-
-.banner-text .subtitle {
-    font-size: 1.5em;
-    color: #555;
-    margin-bottom: 1em;
+    padding-right: 40px; /* Add spacing between text and image */
+    z-index: 1; /* Ensure text is above the image */
 }
 
 .banner-image {
-    flex-shrink: 0;
-    /* Prevent image from shrinking */
-    /* Add width/height constraints if needed, or let the image size dictate */
-    /* e.g., max-width: 30%; */
+    position: absolute; /* Position absolutely */
+    right: 0; /* Align to the right edge of the banner */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Center vertically */
+    height: 100%; /* Full height of banner */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 .banner-image img {
-    max-width: 100%;
-    max-height: calc(100% - (2 * var(--padding-text-block)));
-    /* Approximate if banner has fixed height */
+    height: auto;
+    /* max-height: 90%; /* Keep some margin from top/bottom */
+    width: 30vw;
+    /* max-width: 45vw; /* Responsive width based on viewport width */
     object-fit: contain;
-    /* Ensure image is scaled correctly */
     background-color: transparent;
     /* Assuming transparent PNG */
+    z-index: 0;
 }
 
 
 /* --- Content Tiles (Education/Skills, Contact) --- */
 .content-tile {
-    padding: var(--padding-global-lr);
+    padding: calc(var(--padding-global-lr) / 2) var(--padding-global-lr);
     /* 96px L/R for outer, 80px L/R for inner content */
-    margin: var(--margin-tile-tb);
+    margin: calc(var(--margin-tile-tb) / 2) var(--margin-tile-tb);
     /* 48px top/bottom margin */
     aspect-ratio: 3 / 1;
     /* Width to height ratio 3:1 */
@@ -216,6 +214,10 @@ h3 {
 
 .contact-links p {
     margin: 10px 0;
+}
+
+.contact-links a {
+    color: #2b00ff;
 }
 
 /* --- Divider --- */
@@ -337,7 +339,7 @@ hr.divider {
         margin-left 0.3s ease,
         margin-right 0.3s ease,
         opacity 0.3s ease;
-        /* Consider if z-index should transition: z-index 0.1s linear; */
+    /* Consider if z-index should transition: z-index 0.1s linear; */
 }
 
 /* The .is-main-active class might not need a z-index rule anymore if JS handles it,
@@ -350,8 +352,7 @@ hr.divider {
 /* Updated hover effect for cards */
 .card:not(.no-pop):hover {
     /* On hover, we want a defined larger scale and full brightness, overriding dynamic values */
-    transform: translateY(calc(-1 * var(--card-pop-out-room) + 5px)) 
-        scale(1.001);
+    transform: translateY(calc(-1 * var(--card-pop-out-room) + 5px)) scale(1.001);
     /* Or your preferred hover scale */
     filter: brightness(1);
     /* Hovered card is always full brightness */
@@ -375,6 +376,19 @@ hr.divider {
     border-top-right-radius: 15px; */
 }
 
+.card[data-category="work"] .card-image {
+    object-fit: contain;
+    /* background-color: #f5f5f5; /* Light gray background for letterboxing */
+    max-width: 80%; /* Make image 20% smaller than container width */
+    max-height: 80%; /* Make image 20% smaller than container height */
+    margin: 0 auto; /* Center horizontally */
+    display: block; /* Ensure proper margin handling */
+}
+
+.card[data-category="accomplishment"] .card-image {
+    object-fit: contain;
+}
+
 .card-content {
     padding: 20px;
     flex-grow: 1;
@@ -391,12 +405,12 @@ hr.divider {
 .card-subtitle {
     font-size: 0.9em;
     color: #666;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .card-content p {
     font-size: 0.95em;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     flex-grow: 1;
     /* Push footer to bottom */
 }
@@ -434,6 +448,52 @@ hr.divider {
 }
     */
 
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .card-content {
+        padding: 20px;
+        flex-grow: 1;
+        /* Allow content to fill space */
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card-content h3 {
+        font-size: 1.3em;
+        margin-bottom: 10px;
+        line-height: 150%;
+    }
+
+    .card-subtitle {
+        font-size: 0.9em;
+        color: #666;
+        margin-bottom: 0;
+    }
+
+    .card-content p {
+        font-size: 0.95em;
+        margin-top: 0;
+        margin-bottom: 5px;
+        flex-grow: 1;
+        line-height: 150%;
+        /* Push footer to bottom */
+    }
+
+    .card-footer {
+        font-size: 0.85em;
+        color: #777;
+        margin-top: auto;
+        line-height: 150%;
+        /* Pushes to the bottom */
+    }
+
+    .card-footer .location,
+    .card-footer .date {
+        display: block;
+        margin-bottom: 5px;
+    }
+}
+
 
 /* --- Footer --- */
 .site-footer-bottom {
@@ -451,36 +511,48 @@ hr.divider {
 
 /* --- Styles for Pages with Sidebar --- */
 body.page-with-sidebar {
-    display: flex; /* Arrange sidebar and main content side-by-side */
-    background-color: var(--color-bg-light-gray); /* Main page background for content area */
-    margin-top: 0; /* Remove any default top margin if header is gone */
+    display: flex;
+    /* Arrange sidebar and main content side-by-side */
+    background-color: var(--color-bg-light-gray);
+    /* Main page background for content area */
+    margin-top: 0;
+    /* Remove any default top margin if header is gone */
 }
 
 .page-sidebar {
-    width: 60px; /* Minimized width */
-    height: 100vh; /* Full viewport height */
+    width: 60px;
+    /* Minimized width */
+    height: 100vh;
+    /* Full viewport height */
     background-color: var(--color-white);
-    position: sticky; /* Keep sidebar visible on scroll */
+    position: sticky;
+    /* Keep sidebar visible on scroll */
     top: 0;
-    z-index: 1000; /* Above other content */
-    overflow: hidden; /* Hide text when minimized */
+    z-index: 1000;
+    /* Above other content */
+    overflow: hidden;
+    /* Hide text when minimized */
     transition: width 0.3s ease;
     display: flex;
-    flex-direction: column; /* Stack nav and social links */
+    flex-direction: column;
+    /* Stack nav and social links */
     padding-top: 20px;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar-hamburger-icon {
     position: absolute;
-    top: 15px;     /* Adjust for vertical positioning */
-    right: 18px;   /* Adjust for horizontal positioning within the 60px sidebar */
+    top: 15px;
+    /* Adjust for vertical positioning */
+    right: 18px;
+    /* Adjust for horizontal positioning within the 60px sidebar */
     width: 24px;
     height: 24px;
     color: var(--color-text);
     opacity: 1;
     transition: opacity 0.2s ease;
-    z-index: 1100; /* Above other sidebar content if needed */
+    z-index: 1100;
+    /* Above other sidebar content if needed */
 }
 
 .sidebar-hamburger-icon svg {
@@ -491,16 +563,19 @@ body.page-with-sidebar {
 /* Hide hamburger when sidebar is expanded (hovered) */
 .page-sidebar:hover .sidebar-hamburger-icon {
     opacity: 0;
-    pointer-events: none; /* So it doesn't interfere when hidden */
+    pointer-events: none;
+    /* So it doesn't interfere when hidden */
 }
 
 .page-sidebar:hover {
-    width: 300px; /* Expanded width */
+    width: 300px;
+    /* Expanded width */
     overflow: visible;
 }
 
 .sidebar-nav {
-    flex-grow: 1; /* Nav takes available space */
+    flex-grow: 1;
+    /* Nav takes available space */
 }
 
 .sidebar-nav ul {
@@ -510,23 +585,30 @@ body.page-with-sidebar {
 }
 
 .sidebar-nav .sidebar-link {
-    display: flex; /* Use flex to align text and indicator */
+    display: flex;
+    /* Use flex to align text and indicator */
     align-items: center;
     padding: 15px 20px;
     color: var(--color-text);
     text-decoration: none;
-    white-space: nowrap; /* Prevent text wrapping */
-    position: relative; /* For pop-out and active indicator positioning */
+    white-space: nowrap;
+    /* Prevent text wrapping */
+    position: relative;
+    /* For pop-out and active indicator positioning */
     background-color: var(--color-white);
     transition: padding-right 0.3s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-    width: 86.3%; /* Prevent edge overflow by leaving small margin */
+    width: 86.3%;
+    /* Prevent edge overflow by leaving small margin */
 }
 
 .sidebar-nav .link-text {
-    display: inline-block; /* Enable transform */
-    transition: opacity 0.2s 0.1s ease, transform 0.3s ease; 
-    opacity: 0; /* Hidden by default when sidebar is minimized */
-    transform: translateX(0); /* Initial position */
+    display: inline-block;
+    /* Enable transform */
+    transition: opacity 0.2s 0.1s ease, transform 0.3s ease;
+    opacity: 0;
+    /* Hidden by default when sidebar is minimized */
+    transform: translateX(0);
+    /* Initial position */
 }
 
 .page-sidebar:hover .sidebar-nav .link-text {
@@ -534,24 +616,29 @@ body.page-with-sidebar {
 }
 
 .page-sidebar:hover .sidebar-link {
-    border-top: 1px solid rgba(0, 0, 0, 0.05); /* Subtle separator */
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* Subtle separator */
-    border-right: 1px solid rgba(0, 0, 0, 0.05); /* Subtle separator */
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    /* Subtle separator */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    /* Subtle separator */
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+    /* Subtle separator */
 }
 
 /* Link Hover Effects */
 .page-sidebar .sidebar-link:hover {
-    background-color: var(--color-white); /* Subtle hover background */
+    background-color: var(--color-white);
+    /* Subtle hover background */
     /* transform: translateX(15px); /* Main pop-out */
-    box-shadow: 1px 0 2px rgba(0,0,0,0.1);
+    box-shadow: 1px 0 2px rgba(0, 0, 0, 0.1);
     z-index: 10;
 }
 
 /* Pop-out for nearby links - basic version using adjacent sibling selectors */
 /* This will only affect the link immediately AFTER the hovered one. */
-.page-sidebar .sidebar-link:hover + li > .sidebar-link {
+.page-sidebar .sidebar-link:hover+li>.sidebar-link {
     /* transform: translateX(5px); /* Slightly pop out next link */
 }
+
 /* For a more complex "nearby" (both before and after), JavaScript would be needed. */
 
 
@@ -567,37 +654,49 @@ body.page-with-sidebar {
     top: 0;
     bottom: 0;
     width: 5px;
-    background-color: var(--color-bg-light-blue); /* Light blue vertical bar */
-    opacity: 0; /* Hidden by default */
+    background-color: var(--color-bg-light-blue);
+    /* Light blue vertical bar */
+    opacity: 0;
+    /* Hidden by default */
     transition: opacity 0.3s ease;
 }
-.page-sidebar:hover .sidebar-nav .active-indicator, /* Show when sidebar expanded */
-.page-sidebar .sidebar-link.active-link:hover .active-indicator /* Show on hover of active */
-{
+
+.page-sidebar:hover .sidebar-nav .active-indicator,
+/* Show when sidebar expanded */
+.page-sidebar .sidebar-link.active-link:hover .active-indicator
+
+/* Show on hover of active */
+    {
     opacity: 1;
 }
+
 /* Ensure active indicator on active link is always visible when sidebar expanded */
 .page-sidebar:hover .sidebar-link.active-link .active-indicator {
     opacity: 1;
 }
+
 /* For minimized sidebar, only show indicator if that link is hovered (optional) */
 .page-sidebar .sidebar-link.active-link:hover .active-indicator {
-   /* opacity: 1; /* This might be redundant if covered by general hover */
+    /* opacity: 1; /* This might be redundant if covered by general hover */
 }
 
 
 .sidebar-social-links {
     margin: 20px 0;
     padding: 20px;
-    text-align: center; /* Center icons/text when sidebar is expanded */
+    text-align: center;
+    /* Center icons/text when sidebar is expanded */
     z-index: 20;
 }
+
 .sidebar-social-links a {
     display: inline-block;
-    margin: auto 8px; /* Adjust spacing */
+    margin: auto 8px;
+    /* Adjust spacing */
     height: 100%;
     padding: 5px;
-    color: var(--color-text); /* Icon color will inherit this */
+    color: var(--color-text);
+    /* Icon color will inherit this */
     opacity: 0;
     transition: opacity 0.2s 0.1s ease, transform 0.2s ease, color 0.2s ease;
 }
@@ -607,22 +706,29 @@ body.page-with-sidebar {
 }
 
 .sidebar-social-links a:hover {
-    transform: scale(1.15); /* Slightly larger pop on hover */
-    color: #007bff; /* Change color on hover, or your theme's accent color */
+    transform: scale(1.15);
+    /* Slightly larger pop on hover */
+    color: #007bff;
+    /* Change color on hover, or your theme's accent color */
 }
 
 .sidebar-social-links .social-icon {
-    width: 24px;  /* Adjust size as needed */
-    height: 24px; /* Adjust size as needed */
+    width: 24px;
+    /* Adjust size as needed */
+    height: 24px;
+    /* Adjust size as needed */
     vertical-align: middle;
 }
 
 
 .main-content-area {
-    flex-grow: 1; /* Takes remaining width */
-    padding: 40px var(--padding-global-lr); /* Consistent padding */
+    flex-grow: 1;
+    /* Takes remaining width */
+    padding: 40px var(--padding-global-lr);
+    /* Consistent padding */
     /* Background color is set on body.page-with-sidebar */
-    min-height: 100vh; /* Ensure footer is pushed down if content is short */
+    min-height: 100vh;
+    /* Ensure footer is pushed down if content is short */
     box-sizing: border-box;
 }
 
@@ -630,6 +736,7 @@ body.page-with-sidebar {
     margin-bottom: 30px;
     text-align: center;
 }
+
 .page-title-header h1 {
     font-size: 2.2em;
     color: var(--color-text);
@@ -645,9 +752,10 @@ body.page-with-sidebar {
     display: grid;
     /* grid-gap: 8px; */
     /* Responsive column setup from previous step */
-    grid-template-columns: repeat(auto-fill, minmax(355px, 1fr)); /* Default to 1 column */
+    grid-template-columns: repeat(auto-fill, minmax(355px, 1fr));
+    /* Default to 1 column */
     /* gap: 8px; /* **FIX 2: Set desired gap to 7px** */
-    
+
     /* margin-top: 8; */
     /* margin-right: -8px;
     margin-left: -8px;
@@ -678,19 +786,23 @@ body.page-with-sidebar {
 
 /* Wrapper for making the entire card a link */
 .card-link-wrapper {
-    display: flex; /* Takes up its designated grid cell space */
+    display: flex;
+    /* Takes up its designated grid cell space */
     flex-direction: column;
     align-content: stretch;
     text-decoration: none;
     color: inherit;
-    height: 100%;     /* Ensures the link wrapper takes the full height of the card (which has a fixed height) */
+    height: 100%;
+    /* Ensures the link wrapper takes the full height of the card (which has a fixed height) */
 
     /* **FIX 1: Centering cards & controlling their width within grid cells** */
     /* width: 100%;          /* It can take the full width of the grid cell if needed */
     /* max-width: 400px;     /* BUT, it won't get wider than this. Adjust as you see fit. */
-                          /* This allows cards to have a consistent max size. */
-    margin-left: auto;    /* Center the wrapper (and thus the card) horizontally within its grid cell */
-    margin-right: auto;   /* Center the wrapper (and thus the card) horizontally within its grid cell */
+    /* This allows cards to have a consistent max size. */
+    margin-left: auto;
+    /* Center the wrapper (and thus the card) horizontally within its grid cell */
+    margin-right: auto;
+    /* Center the wrapper (and thus the card) horizontally within its grid cell */
     padding: 0 8px;
     margin-bottom: 16px;
 }
@@ -701,28 +813,36 @@ body.page-with-sidebar {
     text-decoration: none !important;
 }
 
-.card-link-wrapper:focus-visible { /* Modern focus indicator */
-    outline: 2px solid var(--color-text); /* Using your variable */
+.card-link-wrapper:focus-visible {
+    /* Modern focus indicator */
+    outline: 2px solid var(--color-text);
+    /* Using your variable */
     outline-offset: 2px;
     text-decoration: none;
 }
 
 .card-link-wrapper .github-link:hover {
-    text-decoration: underline; /* Only underlines when the GitHub link itself is hovered */
+    text-decoration: underline;
+    /* Only underlines when the GitHub link itself is hovered */
 }
 
 /* Card styles for grid pages */
 .card-grid .card {
-    background-color: var(--color-white); /* Ensure cards have a background */
+    background-color: var(--color-white);
+    /* Ensure cards have a background */
     box-shadow: 0 4px 15px var(--color-shadow);
-    
-    display: flex; /* Use flexbox for internal layout of card content */
-    flex-direction: column; /* Stack image, content, footer vertically */
-    height: 470px; /* **FIX 1: Set a fixed height for uniform cards**
+
+    display: flex;
+    /* Use flexbox for internal layout of card content */
+    flex-direction: column;
+    /* Stack image, content, footer vertically */
+    height: 470px;
+    /* **FIX 1: Set a fixed height for uniform cards**
                       Adjust this value as needed based on your content and design.
                       Alternatively, use min-height if some variation is acceptable
                       but ensure all cards in a row look aligned. */
-    overflow: hidden; /* Prevent content from spilling if it exceeds fixed height */
+    overflow: hidden;
+    /* Prevent content from spilling if it exceeds fixed height */
 
     /* width: 100%; */
     margin: 0;
@@ -730,26 +850,35 @@ body.page-with-sidebar {
     /* Resetting JS-driven styles if they use the same .card class and interfere */
     --card-scale: 1;
     --card-brightness: 1;
-    transform: scale(var(--card-scale)); /* Use the reset scale */
-    filter: brightness(var(--card-brightness)); /* Use the reset brightness */
-    margin: 0; /* Remove individual margins; grid 'gap' handles spacing */
+    transform: scale(var(--card-scale));
+    /* Use the reset scale */
+    filter: brightness(var(--card-brightness));
+    /* Use the reset brightness */
+    margin: 0;
+    /* Remove individual margins; grid 'gap' handles spacing */
 
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .card-grid .card-image {
     width: 100%;
-    height: 180px; /* **FIX 3: Explicit height for the image area** */
-    object-fit: cover; /* Ensures image covers the area, cropping if necessary */
-    background-color: #e0e0e0; /* Fallback color if image is missing/broken */
+    height: 180px;
+    /* **FIX 3: Explicit height for the image area** */
+    object-fit: cover;
+    /* Ensures image covers the area, cropping if necessary */
+    background-color: #e0e0e0;
+    /* Fallback color if image is missing/broken */
 }
 
 .card-grid .card-content {
     padding: 16px;
-    flex-grow: 1; /* Allows this section to take up available vertical space */
+    flex-grow: 1;
+    /* Allows this section to take up available vertical space */
     display: flex;
-    flex-direction: column; /* Stack its own children */
-    overflow-y: auto; /* Add scroll for content if it exceeds allocated space */
+    flex-direction: column;
+    /* Stack its own children */
+    overflow-y: auto;
+    /* Add scroll for content if it exceeds allocated space */
 }
 
 .card-grid .card-content h3 {
@@ -757,28 +886,34 @@ body.page-with-sidebar {
     margin-bottom: 5px;
 }
 
-.card-grid .card-content .card-subtitle { /* Assuming subtitle exists in grid cards too */
+.card-grid .card-content .card-subtitle {
+    /* Assuming subtitle exists in grid cards too */
     font-size: 0.9em;
     color: #666;
     margin-bottom: 10px;
 }
 
-.card-grid .card-content p { /* This is the main descriptive paragraph */
+.card-grid .card-content p {
+    /* This is the main descriptive paragraph */
     font-size: 0.95em;
     margin-bottom: 15px;
-    flex-grow: 1; /* If you want the <p> itself to try and fill space, often not needed if .card-content is flex-grow */
+    flex-grow: 1;
+    /* If you want the <p> itself to try and fill space, often not needed if .card-content is flex-grow */
 }
 
 .card-grid .card-footer {
     font-size: 0.85em;
     color: #777;
-    margin-top: auto; /* Pushes footer to the bottom of .card-content or .card if .card-content isn't flex-grow */
+    margin-top: auto;
+    /* Pushes footer to the bottom of .card-content or .card if .card-content isn't flex-grow */
 }
+
 .card-grid .card-footer .date,
 .card-grid .card-footer .location {
     display: block;
     margin-bottom: 5px;
 }
+
 .card-grid .card-footer .github-link {
     display: block;
     margin-top: 5px;
@@ -793,21 +928,29 @@ body.page-with-sidebar {
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 1; /* Sits above the card's base, but below other interactive elements */
+    z-index: 1;
+    /* Sits above the card's base, but below other interactive elements */
 
     /* Make it 'invisible' but functional: */
-    font-size: 0; /* Hide any accidental text content */
-    color: transparent; /* Hide text color */
-    background-color: transparent; /* Ensure no background color */
-    text-decoration: none; /* Remove underline */
-    outline: none; /* Remove focus outline if not desired here (or style it appropriately) */
+    font-size: 0;
+    /* Hide any accidental text content */
+    color: transparent;
+    /* Hide text color */
+    background-color: transparent;
+    /* Ensure no background color */
+    text-decoration: none;
+    /* Remove underline */
+    outline: none;
+    /* Remove focus outline if not desired here (or style it appropriately) */
 }
 
 /* Hover effect for grid cards */
 .card-grid .card:hover {
-    transform: scale(1.03); /* Slight pop-out, no translateY */
-    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-    z-index: 5; /* Ensure card is positioned if not already (position: relative on .card) */
+    transform: scale(1.03);
+    /* Slight pop-out, no translateY */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    z-index: 5;
+    /* Ensure card is positioned if not already (position: relative on .card) */
 }
 
 /* --- Click Ripple Effect --- */
@@ -853,8 +996,10 @@ body.page-with-sidebar {
     background-color: white;
     transform: scale(0);
     transform-origin: center;
-    width: 2px;  /* Initial size */
-    height: 2px; /* Initial size */
+    width: 2px;
+    /* Initial size */
+    height: 2px;
+    /* Initial size */
 }
 
 .page-load-overlay {
@@ -905,37 +1050,89 @@ body.page-with-sidebar {
     }
 
     .banner {
+        position: relative; /* Enable absolute positioning of children */
         aspect-ratio: auto;
-        /* Allow height to adjust on mobile */
+        min-height: 60vh; /* Ensure enough height for content */
         height: auto;
-        padding-top: 30px;
-        padding-bottom: 30px;
+        padding: 0; /* Remove padding to allow image to touch edges */
+        overflow: hidden; /* Contain rotated image */
+        /* margin-top: 60px; /* Connect with mobile header */
+    }
+
+    .banner::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        /* background: rgba(0, 0, 0, 0.6); /* Dark overlay for text readability */
+        z-index: 1; /* Above image, below content */
     }
 
     .banner-content {
         flex-direction: column;
         text-align: center;
+        padding: 40px var(--padding-global-lr);
+        position: relative;
+        z-index: 2; /* Ensure content is above the image */
+        /* top: -10px; */
     }
 
     .banner-text {
         text-align: center;
-        padding: var(--padding-text-block) 0;
+        padding: var(--padding-text-block);
+        flex: 0 0 auto;
+        width: 100%;
+        /* padding-right: 0; */
+        color: black; /* White text for better contrast */
+        text-shadow: 0 1px 3px rgba(255, 255, 255, 0.2); /* Add shadow for readability */
+        background-color: #36aafdda; /* Semi-transparent background for readability */
+    }
+
+    .banner-text h1,
+    .banner-text .subtitle,
+    .banner-text p {
+        color: black; /* Ensure all text is white for readability */
     }
 
     .banner-image {
-        margin-top: 20px;
-        max-width: 80%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        transform: none;
+        display: block;
+        z-index: 0; /* Behind everything */
+    }
+
+    .banner-image img {
+        width: 150%; /* Larger than screen to handle rotation */
+        height: 150%;
+        object-fit: cover;
+        transform: rotate(-90deg);
+        transform-origin: center;
+        position: absolute;
+        top: -30%;
+        left: -25%;
+        margin: 0;
+        max-width: none; /* Override any max-width restrictions */
     }
 
     .content-tile {
-        aspect-ratio: auto;
-        /* Allow height to adjust */
-        height: auto;
-        padding: 40px var(--padding-global-lr);
+        padding: var(--padding-global-lr) 30px;
+        /* Adjust padding for mobile */
+        margin: 20px 0;
+        /* Adjust margin for mobile */
     }
 
     .education-skills-tile {
         flex-direction: column;
+        /* Stack sections vertically on mobile */
+        align-items: center;
+        /* Center content */
     }
 
     .tile-section {
@@ -951,7 +1148,7 @@ body.page-with-sidebar {
     .first-card {
         width: var(--first-card-width);
     }
-    
+
     .last-card {
         width: calc(100vw - var(--first-card-width) - var(--last-card-width-offset));
     }
@@ -964,6 +1161,9 @@ body.page-with-sidebar {
     .card-grid-wrapper {
         width: 250px;
     }
+
+
+    /* ...existing code... */
 }
 
 /* --- Expanded Card View --- */
@@ -1139,7 +1339,7 @@ body.page-with-sidebar {
     color: #777;
 }
 
-.expanded-card-metadata > div {
+.expanded-card-metadata>div {
     display: flex;
     align-items: center;
 }
@@ -1213,7 +1413,8 @@ body.page-with-sidebar {
 }
 
 .timeline-item-content {
-    padding-top: 45px; /* Space for the date at top */
+    padding-top: 45px;
+    /* Space for the date at top */
 }
 
 /* Timeline item header section */
@@ -1303,21 +1504,21 @@ body.page-with-sidebar {
     .timeline-container::before {
         left: 30px;
     }
-    
+
     .timeline-item::before {
-        left: 30px;
+        left: 18px;
         transform: none;
     }
-    
+
     .timeline-date {
         text-align: left;
         left: 70px;
     }
-    
+
     .timeline-header {
         flex-direction: column;
     }
-    
+
     .timeline-header-image {
         width: 100%;
         height: 180px;
@@ -1378,11 +1579,12 @@ body.page-with-sidebar {
 .project-gallery-image {
     width: 100%;
     height: 0;
-    padding-bottom: 75%; /* 4:3 aspect ratio */
+    padding-bottom: 75%;
+    /* 4:3 aspect ratio */
     position: relative;
     overflow: hidden;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .project-gallery-image img {
@@ -1429,7 +1631,7 @@ body.page-with-sidebar {
 
 .project-button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     text-decoration: none;
 }
 
@@ -1439,16 +1641,16 @@ body.page-with-sidebar {
         gap: 5px;
         align-items: center;
     }
-    
+
     .project-gallery {
         grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     }
-    
+
     .project-links {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .project-button {
         width: 100%;
         justify-content: center;
@@ -1457,29 +1659,40 @@ body.page-with-sidebar {
 
 /* --- Project Sidebar Styles --- */
 .project-sidebar {
-    position: sticky; /* Change to fixed positioning */
-    left: 60px; /* Position right next to the main sidebar */
-    top: 0;     /* Ensure it starts at the top of the viewport */
-    height: 100vh; /* Full viewport height */
-    width: 60px;  /* Same width as main sidebar */
-    z-index: 999; /* Just below main sidebar */
-    border-left: 1px solid rgba(0, 0, 0, 0.05); /* Subtle separator */
+    position: sticky;
+    /* Change to fixed positioning */
+    left: 60px;
+    /* Position right next to the main sidebar */
+    top: 0;
+    /* Ensure it starts at the top of the viewport */
+    height: 100vh;
+    /* Full viewport height */
+    width: 60px;
+    /* Same width as main sidebar */
+    z-index: 999;
+    /* Just below main sidebar */
+    border-left: 1px solid rgba(0, 0, 0, 0.05);
+    /* Subtle separator */
     background-color: var(--color-white);
-    overflow: hidden; /* Hide text when minimized */
+    overflow: hidden;
+    /* Hide text when minimized */
     transition: width 0.3s ease;
     display: flex;
-    flex-direction: column; /* Stack nav and social links */
+    flex-direction: column;
+    /* Stack nav and social links */
     padding-top: 20px;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .project-sidebar:hover {
-    width: 300px; /* Same width as main sidebar when expanded */
+    width: 300px;
+    /* Same width as main sidebar when expanded */
     overflow: visible;
 }
 
 .project-sidebar .sidebar-nav {
-    margin-top: 20px; /* Match padding of main sidebar */
+    margin-top: 20px;
+    /* Match padding of main sidebar */
 }
 
 /* Hide default page title when using project layout */
@@ -1489,9 +1702,320 @@ body.has-project-sidebar .page-title-header {
 
 /* Adjust main content area when on project pages */
 body.has-project-sidebar .main-content-area {
-    margin-left: 120px; /* Account for both sidebars (60px * 2) */
+    margin-left: 120px;
+    /* Account for both sidebars (60px * 2) */
 }
 
 body.has-project-sidebar .project-content-area {
-    padding-left: calc(var(--padding-global-lr) - 60px); /* Adjust padding to maintain the same spacing */
+    padding-left: calc(var(--padding-global-lr) - 60px);
+    /* Adjust padding to maintain the same spacing */
+}
+
+/* --- Mobile Header and Navigation --- */
+.desktop-only {
+    display: block;
+}
+
+.mobile-only {
+    display: none;
+}
+
+.mobile-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-color: var(--color-white);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 1000;
+}
+
+.mobile-logo {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+.mobile-menu-toggle {
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.mobile-menu-toggle span {
+    display: block;
+    width: 24px;
+    height: 3px;
+    background-color: var(--color-text);
+    margin: 2px 0;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+.mobile-nav-panel {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 85%;
+    height: 100%;
+    background-color: var(--color-white);
+    z-index: 1010;
+    overflow-y: auto;
+    transition: left 0.3s ease;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.mobile-nav-panel.active {
+    left: 0;
+}
+
+.mobile-nav-header {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.mobile-nav-header h2 {
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+.mobile-nav-close {
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.mobile-nav-close span {
+    position: absolute;
+    width: 24px;
+    height: 3px;
+    background-color: var(--color-text);
+    top: 50%;
+    left: 50%;
+}
+
+.mobile-nav-close span:nth-child(1) {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.mobile-nav-close span:nth-child(2) {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.mobile-nav-list {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.mobile-nav-list a {
+    padding: 15px 0;
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mobile-nav-list a:last-child {
+    border-bottom: none;
+}
+
+.mobile-nav-list a.active {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.submenu-arrow {
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.mobile-social-links {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 0 20px 20px;
+}
+
+.mobile-social-links a {
+    margin: 0 10px;
+    color: var(--color-text);
+}
+
+.mobile-social-links .social-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.mobile-main-nav,
+.mobile-project-nav {
+    display: none;
+}
+
+.mobile-main-nav.active,
+.mobile-project-nav.active {
+    display: block;
+}
+
+.back-to-main-nav {
+    margin: 20px;
+    padding: 10px 15px;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.mobile-nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1005;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.mobile-nav-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Adjust mobile spacing */
+body.mobile-menu-open {
+    overflow: hidden;
+}
+
+.mobile-spacer {
+    height: 60px;
+}
+
+/* ...existing responsive media queries... */
+
+/* Update the responsive adjustments for mobile */
+@media (max-width: 768px) {
+    /* ...existing media query styles... */
+
+    .desktop-only {
+        display: none !important;
+    }
+
+    .mobile-only {
+        display: block;
+    }
+
+    .main-content-area {
+        margin-top: 10px;
+        /* Space for fixed mobile header */
+        padding: 20px !important;
+    }
+
+    body.has-project-sidebar .main-content-area {
+        margin-left: 0;
+        /* Reset margin that was for desktop sidebar */
+    }
+
+    .timeline-wrapper {
+        padding: 10px 20px;
+    }
+
+    .page-title-header {
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .page-title-header h1 {
+        font-size: 2.2em;
+        color: var(--color-text);
+    }
+
+    /* Adjust page structure for mobile */
+    body.page-with-sidebar {
+        display: block;
+        /* Switch from flex to block for mobile */
+    }
+
+    /* Reset sidebar styles on mobile */
+    .page-sidebar {
+        width: 0;
+        display: none;
+    }
+}
+
+/* ...rest of existing CSS... */
+
+.mobile-nav-title {
+    display: flex;
+    align-items: center;
+}
+
+.back-arrow {
+    display: none;
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin-right: 10px;
+    cursor: pointer;
+    color: var(--color-text);
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.mobile-project-nav.active~.mobile-nav-header .back-arrow,
+.mobile-nav-panel.projects-view .back-arrow {
+    display: flex;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.mobile-nav-panel.projects-view .mobile-nav-header h2 {
+    margin-left: 5px;
+}
+
+.mobile-nav-header h2 {
+    margin: 0;
+    font-size: 1.3rem;
+    transition: margin-left 0.2s ease;
 }

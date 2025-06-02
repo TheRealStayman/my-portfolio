@@ -7,17 +7,21 @@
         "Description Brief": "Developed applications to allow hundreds of missionaries to report weekly statistics and data of their areas.",
         "Description Long": "Created and coded a sophisticated reporting system using Google Sheets and Google Apps Script, resulting in a 1000% increase in missionary productivity. Authored technology guides, reports, and requests to enhance technology utilization.",
         "Header Image": {
-            "src": "/img/missionary/header.png",
+            "src": "/img/missionary/church.jpg",
             "alt": "Header image for the IT Specialist Missionary position"
         },
         "Images": [
             {
-                "src": "/img/missionary/image1.png",
-                "alt": "Missionary image 1"
+                "src": "/img/missionary/datasheet.jpg",
+                "alt": "A spreadsheet from the reporting system I created"
             },
             {
-                "src": "/img/missionary/image2.png",
-                "alt": "Missionary image 2"
+                "src": "/img/missionary/report-card.jpg",
+                "alt": "A screenshot of the reporting system I created"
+            },
+            {
+                "src": "/img/missionary/graph.jpg",
+                "alt": "A graph demonstrating the increase in productivity"
             }
         ]
     },
@@ -29,17 +33,21 @@
         "Description Brief": "Directed my high school's robotics team with an emphasis on training new members to grow into leadership roles.",
         "Description Long": "Led high school robotics team of 30 students as Team Captain, focusing on leadership development and training new team members. Fostered a culture of openness and learning, resulting in significant team success in the FIRST Robotics Competition, achieving the second most successful year.",
         "Header Image": {
-            "src": "/img/captain/header.png",
-            "alt": "Header image for the Team Captain position"
+            "src": "/img/captain/2019 Robot CAD Drawing.jpg",
+            "alt": "A picture of the robot at the 2019 competition"
         },
         "Images": [
             {
-                "src": "/img/captain/image1.png",
-                "alt": "Team Captain image 1"
+                "src": "/img/captain/Logo.jpg",
+                "alt": "The team logo"
             },
             {
-                "src": "/img/captain/image2.png",
-                "alt": "Team Captain image 2"
+                "src": "/img/captain/2019 Robot.jpg",
+                "alt": "A mockup of the robot in CAD"
+            },
+            {
+                "src": "/img/captain/2019 Robot Work.jpg",
+                "alt": "The team working on the robot"
             }
         ]
     },
@@ -51,17 +59,25 @@
         "Description Brief": "Delegated massive programming projects into smaller projects and organized pairs of students to accomplish each project.",
         "Description Long": "Spearheaded the programming division for three years, training numerous programmers to code efficiently for robot functionalities. Engineered a fast and efficient codebase, contributing to the team's highest-performing year with a playoff appearance in the Utah regional. Consistently secured the highest amount of fundraising contributions, playing a key role in annual fundraising efforts ranging from $10,000 to $15,000.",
         "Header Image": {
-            "src": "/img/team-lead/header.png",
-            "alt": "Header image for the Team Programming Lead position"
+            "src": "/img/team-lead/2017 Robot.jpg",
+            "alt": "A picture of the 2017 robot being built"
         },
         "Images": [
             {
-                "src": "/img/team-lead/image1.png",
-                "alt": "Programming Team Lead image 1"
+                "src": "/img/team-lead/Logo.jpg",
+                "alt": "The team logo"
             },
             {
-                "src": "/img/team-lead/image2.png",
-                "alt": "Programming Team Lead image 2"
+                "src": "/img/team-lead/2016 Robot.jpg",
+                "alt": "A picture of the robot built in 2016 in queue at the 2016 competition"
+            },
+            {
+                "src": "/img/team-lead/2017 Robot on Field.jpg",
+                "alt": "A picture of the 2017 robot playing on the field at the 2017 competition"
+            },
+            {
+                "src": "/img/team-lead/2018 Robot on Field.jpg",
+                "alt": "A picture of the 2018 robot being loaded onto the field"
             }
         ]
     }

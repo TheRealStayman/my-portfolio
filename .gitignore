@@ -2606,3 +2606,88 @@ build.bat
 .gitignore
 build.bat - Shortcut.lnk
 Projects.txt
+_site/css/gallery-lightbox.css
+_site/img/banner-image.png
+_site/img/alexandria/course.png
+_site/img/alexandria/header.png
+_site/img/alexandria/homepage.png
+_site/img/alexandria/logo.png
+_site/img/alexandria/new-course.png
+_site/img/alexandria/profile.png
+_site/img/alexandria/search.png
+_site/img/captain/2019 Robot CAD Drawing.jpg
+_site/img/captain/2019 Robot Work.jpg
+_site/img/captain/2019 Robot.jpg
+_site/img/captain/Logo.jpg
+_site/img/cs-tutor/Ensign_College_Square.png
+_site/img/cs-tutor/header.png
+_site/img/custodian/Ensign_College_Square.png
+_site/img/custodian/header.png
+_site/img/face-controller/header.png
+_site/img/face-controller/key-bindings.png
+_site/img/face-controller/main-screen.png
+_site/img/face-controller/rock-gym.png
+_site/img/face-controller/thresholds.png
+_site/img/face-controller/victory-road.png
+_site/img/hazelcast/ending.png
+_site/img/hazelcast/first-room-active.png
+_site/img/hazelcast/first-room.png
+_site/img/hazelcast/Hazelcast-Square.png
+_site/img/hazelcast/header.png
+_site/img/hazelcast/second-room-active.png
+_site/img/hazelcast/second-room-solved.png
+_site/img/hazelcast/third-room-atm.png
+_site/img/hazelcast/third-room-boxes.png
+_site/img/hazelcast/third-room-phone.png
+_site/img/hazelcast/third-room-start.png
+_site/img/midi-reader/burnt-wall.jpg
+_site/img/midi-reader/header.png
+_site/img/midi-reader/IMG_20170531_152848.jpg
+_site/img/midi-reader/IMG_20170531_152853.jpg
+_site/img/midi-reader/IMG_20170531_153107.jpg
+_site/img/midi-reader/melted-3d-printer-back.jpg
+_site/img/midi-reader/melted-3d-printer-front.jpg
+_site/img/midi-reader/Op27_1_seg_mov.png
+_site/img/minecraft/cover-title.jpeg
+_site/img/minecraft/cover.jpeg
+_site/img/minecraft/Minecraft for Dummies.jpeg
+_site/img/minecraft-recipes/cover-title.jpeg
+_site/img/minecraft-recipes/cover.jpeg
+_site/img/missionary/church.jpg
+_site/img/missionary/datasheet.jpg
+_site/img/missionary/graph.jpg
+_site/img/missionary/me.jpg
+_site/img/missionary/report-card.jpg
+_site/img/portfolio-website/header-desktop.png
+_site/img/portfolio-website/header-mobile.png
+_site/img/portfolio-website/header.png
+_site/img/portfolio-website/homepage-desktop.png
+_site/img/portfolio-website/homepage-mobile-cards.png
+_site/img/portfolio-website/homepage-mobile-header.png
+_site/img/portfolio-website/leadership-service-desktop.png
+_site/img/portfolio-website/leadership-service-mobile.png
+_site/img/portfolio-website/project-example-desktop.png
+_site/img/portfolio-website/project-example-mobile.png
+_site/img/portfolio-website/projects-desktop.png
+_site/img/portfolio-website/Screenshot 2025-06-02 at 14-23-49 Home.png
+_site/img/portfolio-website/sidebar-desktop.png
+_site/img/portfolio-website/sidebar-mobile.png
+_site/img/portfolio-website/website-mobile-header.png
+_site/img/portfolio-website/work-experience-desktop.png
+_site/img/portfolio-website/work-experience-mobile.png
+_site/img/sterling-scholar/logo.png
+_site/img/sterling-scholar/Sterling Scholar.png
+_site/img/stock-analysis-v1/Amcor Best Words.png
+_site/img/stock-analysis-v1/Amcor Worst Words.png
+_site/img/stock-analysis-v1/Domino's Best Words.png
+_site/img/stock-analysis-v1/Domino's Worst Words.png
+_site/img/stock-analysis-v1/GDELT Screenshot.png
+_site/img/stock-analysis-v1/header.jpg
+_site/img/stock-analysis-v1/Overall Best Words.png
+_site/img/stock-analysis-v1/Overall Worst Words.png
+_site/img/team-lead/2016 Robot.jpg
+_site/img/team-lead/2017 Robot on Field.jpg
+_site/img/team-lead/2017 Robot.jpg
+_site/img/team-lead/2018 Robot on Field.jpg
+_site/img/team-lead/Logo.jpg
+_site/js/gallery-lightbox.js

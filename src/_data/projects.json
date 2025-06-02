@@ -33,12 +33,52 @@
         },
         "Images": [
             {
-                "src": "/img/portfolio-website/desktop.png",
-                "alt": "Desktop view of the portfolio website"
+                "src": "/img/portfolio-website/homepage-desktop.png",
+                "alt": "Desktop view of the homepage of this website"
             },
             {
-                "src": "/img/portfolio-website/mobile.png",
-                "alt": "Mobile view of the portfolio website"
+                "src": "/img/portfolio-website/work-experience-desktop.png",
+                "alt": "Desktop view of the work experience page of this website"
+            },
+            {
+                "src": "/img/portfolio-website/projects-desktop.png",
+                "alt": "Desktop view of the projects page of this website"
+            },
+            {
+                "src": "/img/portfolio-website/leadership-service-desktop.png",
+                "alt": "Desktop view of the leadership and service page of this website"
+            },
+            {
+                "src": "/img/portfolio-website/project-example-desktop.png",
+                "alt": "Desktop view of the face controller page of this website"
+            },
+            {
+                "src": "/img/portfolio-website/sidebar-desktop.png",
+                "alt": "Desktop view of the sidebar of this website"
+            },
+            {
+                "src": "/img/portfolio-website/homepage-mobile-header.png",
+                "alt": "Mobile view of the banner of the homepage of this website"
+            },
+            {
+                "src": "/img/portfolio-website/homepage-mobile-cards.png",
+                "alt": "Mobile view of the cards on the homepage of this website"
+            },
+            {
+                "src": "/img/portfolio-website/work-experience-mobile.png",
+                "alt": "Mobile view of the work experience page of this website"
+            },
+            {
+                "src": "/img/portfolio-website/leadership-service-mobile.png",
+                "alt": "Mobile view of the leadership and service page of this website"
+            },
+            {
+                "src": "/img/portfolio-website/project-example-mobile.png",
+                "alt": "Mobile view of the stock analysis page of this website"
+            },
+            {
+                "src": "/img/portfolio-website/sidebar-mobile.png",
+                "alt": "Mobile view of the sidebar of this website"
             }
         ] 
     },
@@ -72,17 +112,37 @@
         "Card Link": "/projects/stock-analysis-v1/",
         "Navbar Text": "Stock Analysis v1",
         "Header Image": {
-            "src": "/img/stock-analysis-v1/header.png",
-            "alt": "Screenshot of the stock analysis v1 application"
+            "src": "/img/stock-analysis-v1/header.jpg",
+            "alt": "A stock photo of the stock market"
         },
         "Images": [
             {
-                "src": "/img/stock-analysis-v1/desktop.png",
-                "alt": "Desktop view of the stock analysis v1 application"
+                "src": "/img/stock-analysis-v1/GDELT Screenshot.png",
+                "alt": "GDELT Event Json Screenshot"
             },
             {
-                "src": "/img/stock-analysis-v1/mobile.png",
-                "alt": "Mobile view of the stock analysis v1 application"
+                "src": "/img/stock-analysis-v1/Domino's Best Words.png",
+                "alt": "Domino's Best Words"
+            },
+            {
+                "src": "/img/stock-analysis-v1/Domino's Worst Words.png",
+                "alt": "Domino's Worst Words"
+            },
+            {
+                "src": "/img/stock-analysis-v1/Amcor Best Words.png",
+                "alt": "Amcor's Best Words"
+            },
+            {
+                "src": "/img/stock-analysis-v1/Amcor Worst Words.png",
+                "alt": "Amcor's Worst Words"
+            },
+            {
+                "src": "/img/stock-analysis-v1/Overall Best Words.png",
+                "alt": "Overall Best Words"
+            },
+            {
+                "src": "/img/stock-analysis-v1/Overall Worst Words.png",
+                "alt": "Overall Worst Words"
             }
         ]
     },
@@ -114,16 +174,32 @@
         "Navbar Text": "Alexandria",
         "Header Image": {
             "src": "/img/alexandria/header.png",
-            "alt": "Screenshot of the Alexandria app"
+            "alt": "Alexandria app logo"
         },
         "Images": [
             {
-                "src": "/img/alexandria/desktop.png",
-                "alt": "Desktop view of the Alexandria app"
+                "src": "/img/alexandria/logo.png",
+                "alt": "Alexandria app logo"
             },
             {
-                "src": "/img/alexandria/mobile.png",
-                "alt": "Mobile view of the Alexandria app"
+                "src": "/img/alexandria/homepage.png",
+                "alt": "Alexandria homepage"
+            },
+            {
+                "src": "/img/alexandria/search.png",
+                "alt": "Alexandria search page"
+            },
+            {
+                "src": "/img/alexandria/profile.png",
+                "alt": "Alexandria user profile page"
+            },
+            {
+                "src": "/img/alexandria/course.png",
+                "alt": "Alexandria course page"
+            },
+            {
+                "src": "/img/alexandria/new-course.png",
+                "alt": "Alexandria course creation page"
             }
         ]
     },
@@ -164,18 +240,30 @@
         },
         "Images": [
             {
-                "src": "/img/face-controller/desktop.png",
+                "src": "/img/face-controller/main-screen.png",
                 "alt": "Desktop view of the Face Controller application"
             },
             {
-                "src": "/img/face-controller/mobile.png",
-                "alt": "Mobile view of the Face Controller application"
+                "src": "/img/face-controller/key-bindings.png",
+                "alt": "Key bindings configuration window"
+            },
+            {
+                "src": "/img/face-controller/thresholds.png",
+                "alt": "Threshold configuration screen"
+            },
+            {
+                "src": "/img/face-controller/rock-gym.png",
+                "alt": "Using the Face Controller to beat Pokemon FireRed"
+            },
+            {
+                "src": "/img/face-controller/victory-road.png",
+                "alt": "Using the Face Controller to beat Pokemon FireRed"
             }
         ]
     },
     {
         "Title": "MIDI Reader",
-        "Date": "May 2018 - Jun 2018",
+        "Date": "May 2017 - Jun 2017",
         "Category": "Digital Music, Data Parsing, Software Development",
         "Technologies": "MIDI (file format), Hexadecimal Data Parsing, Python",
         "Description Brief": "Composed a program to deconstruct MIDI files and give instructions to robotically controlled instruments.",
@@ -199,16 +287,20 @@
         "Navbar Text": "MIDI Reader",
         "Header Image": {
             "src": "/img/midi-reader/header.png",
-            "alt": "Screenshot of the MIDI Reader application"
+            "alt": "Stock sheet music"
         },
         "Images": [
             {
-                "src": "/img/midi-reader/desktop.png",
-                "alt": "Desktop view of the MIDI Reader application"
+                "src": "/img/midi-reader/melted-3d-printer-front.jpg",
+                "alt": "Front view of the 3D printer that melted"
             },
             {
-                "src": "/img/midi-reader/mobile.png",
-                "alt": "Mobile view of the MIDI Reader application"
+                "src": "/img/midi-reader/melted-3d-printer-back.jpg",
+                "alt": "Back view of the 3D printer that melted"
+            },
+            {
+                "src": "/img/midi-reader/burnt-wall.jpg",
+                "alt": "View of the wall that burned"
             }
         ]
     }

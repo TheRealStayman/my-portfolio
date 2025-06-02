@@ -13,7 +13,7 @@ layout: "layout.njk"
             </p>
         </div>
         <div class="banner-image">
-            <img src="/img/your-banner-image.png"
+            <img src="/img/banner-image.png"
                  alt="A decorative image of Thomas Stay">
         </div>
     </div>
@@ -25,28 +25,25 @@ layout: "layout.njk"
                 <div class="text-block">
                     <h2>Education</h2>
                     <p>
-                        <strong>University of Excellence</strong>
+                        <strong>University of Utah</strong>
                         <br>
-                        Master of Science in Computer Engineering
+                        Bachelors of Science in Computer Engineering
                         <br>
-                        Graduated: May 20XX
-                    </p>
-                    <p>
-                        <strong>Tech State University</strong>
+                        May 2027
                         <br>
-                        Bachelor of Science in Software Development
-                        <br>
-                        Graduated: May 20XX
+                        Dean's List
                     </p>
                 </div>
                 <div class="list-block">
                     <h3>Related Coursework</h3>
                     <ul>
-                        <li>Advanced Algorithms</li>
-                        <li>Embedded Systems Design</li>
-                        <li>Game AI Programming</li>
-                        <li>Compiler Construction</li>
-                        <li>Network Security</li>
+                        <li>Object Oriented Programming</li>
+                        <li>Algortihms & Data Structures</li>
+                        <li>Calculus I, II, and III</li>
+                        <li>Linear Algebra & Differential Equations</li>
+                        <li>Foundations of Math (Discrete Structures)</li>
+                        <li>Physics I, II</li>
+                        <li>Circuits & Systems I</li>
                     </ul>
                 </div>
             </div>
@@ -62,10 +59,14 @@ layout: "layout.njk"
                     <ul>
                         <li>C/C++</li>
                         <li>Python</li>
-                        <li>JavaScript (Node.js, React)</li>
-                        <li>C# (Unity)</li>
-                        <li>Assembly</li>
+                        <li>JavaScript (Node.js)</li>
                         <li>Java</li>
+                        <li>HTML5 & CSS3</li>
+                        <li>Kotlin</li>
+                        <li>Unreal Engine 4, 5 Scripting Language</li>
+                        <li>UI/UX Design</li>
+                        <li>Android Development</li>
+                        <li>Google Firebase</li>
                     </ul>
                 </div>
             </div>
@@ -207,10 +208,17 @@ layout: "layout.njk"
     <div class="carousel" id="accomplishments-carousel">
         <div class="first-card"></div>
         {% for accomplishment in accomplishments %}
-        <div class="card no-pop">
+        <div data-category="accomplishment"
+             class="card no-pop">
+            {% if accomplishment['Header Image'] %}
+            <img src="{{ accomplishment['Header Image'].src }}"
+                 alt="{{ accomplishment['Header Image'].alt }}"
+                 class="card-image">
+            {% else %}
             <img src="/img/accomplishment-placeholder.png"
                  alt="{{ accomplishment.Title }}"
                  class="card-image">
+            {% endif %}
             <div class="card-content">
                 <h3>{{ accomplishment.Title }}</h3>
                 <p>{{ accomplishment['Description Brief'] }}</p>

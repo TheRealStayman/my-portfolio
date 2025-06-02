@@ -7,7 +7,8 @@
         <link rel="stylesheet" href="/css/style.css">
     </head>
     <body class="page-with-sidebar {% if layout == 'project-layout.njk' %}has-project-sidebar{% endif %}">
-        <div class="page-sidebar">
+        <!-- Desktop Sidebar -->
+        <div class="page-sidebar desktop-only">
             <div class="sidebar-hamburger-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -49,9 +50,16 @@
             </div>
         </div>
         
+        <!-- Mobile Header and Navigation -->
+        <div class="mobile-only">
+            {% include "mobile-header.njk" %}
+            <div class="mobile-spacer"></div>
+        </div>
+        
         {{ content | safe }}
         
         <script src="/js/main.js"></script>
         <script src="/js/page-transitions.js"></script>
+        <script src="/js/card-expander.js"></script>
     </body>
 </html>

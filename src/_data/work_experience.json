@@ -10,16 +10,11 @@
             "src": "/img/cs-tutor/header.png",
             "alt": "Header image for the Computer Science Tutor position"
         },
-        "Images": [
-            {
-                "src": "/img/cs-tutor/image1.png",
-                "alt": "Computer Science image 1"
-            },
-            {
-                "src": "/img/cs-tutor/image2.png",
-                "alt": "Computer Science image 2"
-            }
-        ]
+        "Timeline Image": {
+            "src": "/img/cs-tutor/Ensign_College_Square.png",
+            "alt": "Timeline image for the Computer Science Tutor position"
+        },
+        "Images": []
     },
     {
         "Title": "Custodian",
@@ -32,16 +27,11 @@
             "src": "/img/custodian/header.png",
             "alt": "Header image for the Custodian position"
         },
-        "Images": [
-            {
-                "src": "/img/custodian/image1.png",
-                "alt": "Custodian image 1"
-            },
-            {
-                "src": "/img/custodian/image2.png",
-                "alt": "Custodian image 2"
-            }
-        ]
+        "Timeline Image": {
+            "src": "/img/custodian/Ensign_College_Square.png",
+            "alt": "Timeline image for the Custodian position"
+        },
+        "Images": []
     },
     {
         "Title": "Software Engineer Intern",
@@ -54,14 +44,46 @@
             "src": "/img/hazelcast/header.png",
             "alt": "Header image for the Software Engineer Intern position"
         },
+        "Timeline Image": {
+            "src": "/img/hazelcast/Hazelcast-Square.png",
+            "alt": "Timeline image for the Software Engineer Intern position"
+        },
         "Images": [
             {
-                "src": "/img/hazelcast/image1.png",
-                "alt": "Hazelcast image 1"
+                "src": "/img/hazelcast/first-room.png",
+                "alt": "A screenshot from the first room of the game"
             },
             {
-                "src": "/img/hazelcast/image2.png",
-                "alt": "Hazelcast image 2"
+                "src": "/img/hazelcast/first-room-active.png",
+                "alt": "A screenshot from the first room of the game after playing"
+            },
+            {
+                "src": "/img/hazelcast/second-room-active.png",
+                "alt": "A screenshot from the second room of the game after playing"
+            },
+            {
+                "src": "/img/hazelcast/second-room-solved.png",
+                "alt": "A screenshot from the second room of the game after solving the puzzle"
+            },
+            {
+                "src": "/img/hazelcast/third-room-start.png",
+                "alt": "A screenshot from the third room of the game"
+            },
+            {
+                "src": "/img/hazelcast/third-room-atm.png",
+                "alt": "A screenshot of the atm in the third room of the game"
+            },
+            {
+                "src": "/img/hazelcast/third-room-phone.png",
+                "alt": "A screenshot of the phone in the third room of the game"
+            },
+            {
+                "src": "/img/hazelcast/third-room-boxes.png",
+                "alt": "A screenshot of a bunch of boxes in the third room of the game"
+            },
+            {
+                "src": "/img/hazelcast/ending.png",
+                "alt": "A screenshot of the ending screen of the game"
             }
         ]
     }

@@ -174,4 +174,79 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // --- Mobile Navigation Functionality ---
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileNavPanel = document.querySelector('.mobile-nav-panel');
+    const mobileNavOverlay = document.querySelector('.mobile-nav-overlay');
+    const mobileNavClose = document.querySelector('.mobile-nav-close');
+    const projectsSubmenuLink = document.querySelector('.mobile-nav-list a[data-submenu="projects"]');
+    const backArrowBtn = document.querySelector('.back-arrow');
+    const mobileMainNav = document.querySelector('.mobile-main-nav');
+    const mobileProjectNav = document.querySelector('.mobile-project-nav');
+    
+    // Open mobile menu
+    if (mobileMenuToggle && mobileNavPanel && mobileNavOverlay) {
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenuToggle.classList.add('active');
+            mobileNavPanel.classList.add('active');
+            mobileNavOverlay.classList.add('active');
+            document.body.classList.add('mobile-menu-open');
+            
+            // Always show main navigation first when opening menu
+            mobileMainNav.classList.add('active');
+            mobileProjectNav.classList.remove('active');
+            mobileNavPanel.classList.remove('projects-view');
+        });
+        
+        // Close mobile menu
+        const closeMobileMenu = () => {
+            mobileMenuToggle.classList.remove('active');
+            mobileNavPanel.classList.remove('active');
+            mobileNavOverlay.classList.remove('active');
+            document.body.classList.remove('mobile-menu-open');
+        };
+        
+        mobileNavOverlay.addEventListener('click', closeMobileMenu);
+        mobileNavClose.addEventListener('click', closeMobileMenu);
+        
+        // Handle mobile link clicks to close menu except for special submenu links
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-list a:not(.has-submenu)');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                closeMobileMenu();
+            });
+        });
+        
+        // Show project navigation when Projects submenu link is clicked
+        if (projectsSubmenuLink) {
+            projectsSubmenuLink.addEventListener('click', (e) => {
+                e.preventDefault(); // Ensure we prevent the default navigation
+                e.stopPropagation(); // Stop event bubbling
+                mobileMainNav.classList.remove('active');
+                mobileProjectNav.classList.add('active');
+                mobileNavPanel.classList.add('projects-view');
+                return false; // Extra layer of protection against navigation
+            });
+        }
+        
+        // Back to main navigation when back arrow is clicked
+        if (backArrowBtn) {
+            backArrowBtn.addEventListener('click', () => {
+                mobileProjectNav.classList.remove('active');
+                mobileMainNav.classList.add('active');
+                mobileNavPanel.classList.remove('projects-view');
+            });
+        }
+    }
+    
+    // Add spacer if we're on a mobile view with fixed header
+    if (window.innerWidth <= 768) {
+        const spacer = document.createElement('div');
+        spacer.className = 'mobile-spacer';
+        if (!document.querySelector('.mobile-spacer')) {
+            const firstChild = document.body.firstChild;
+            document.body.insertBefore(spacer, firstChild);
+        }
+    }
 });

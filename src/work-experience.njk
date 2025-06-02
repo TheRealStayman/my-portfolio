@@ -19,9 +19,9 @@ eleventyNavigation:
                     <div class="timeline-date">{{ job.Date }}</div>
                     <div class="timeline-item-content">
                         <div class="timeline-header">
-                            {% if job['Header Image'] %}
-                            <img src="{{ job['Header Image'].src }}"
-                                 alt="{{ job['Header Image'].alt }}"
+                            {% if job['Timeline Image'] %}
+                            <img src="{{ job['Timeline Image'].src }}"
+                                 alt="{{ job['Timeline Image'].alt }}"
                                  class="timeline-header-image">
                             {% else %}
                             <img src="/img/placeholder-image.png"
@@ -55,3 +55,7 @@ eleventyNavigation:
         </div>
     </main>
 </div>
+
+<!-- Add the gallery lightbox functionality -->
+<link rel="stylesheet" href="/css/gallery-lightbox.css">
+<script src="/js/gallery-lightbox.js"></script>

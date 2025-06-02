@@ -40,6 +40,11 @@ eleventyNavigation:
                             </div>
                             {% if item.Images and item.Images.length > 0 %}
                             <div class="timeline-gallery">
+                                {% if item['Header Image'] %}
+                                <img src="{{ item['Header Image'].src }}"
+                                     alt="{{ item['Header Image'].alt }}"
+                                     class="gallery-image">
+                                {% endif %}
                                 {% for image in item.Images %}
                                 <img src="{{ image.src }}"
                                      alt="{{ image.alt }}"
@@ -55,3 +60,7 @@ eleventyNavigation:
         </div>
     </main>
 </div>
+
+<!-- Add the gallery lightbox functionality -->
+<link rel="stylesheet" href="/css/gallery-lightbox.css">
+<script src="/js/gallery-lightbox.js"></script>

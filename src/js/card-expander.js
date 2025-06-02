@@ -199,6 +199,27 @@ document.addEventListener('DOMContentLoaded', function() {
             expandedCard.querySelector('.expanded-card-carousel').addEventListener('mouseleave', startCarousel);
         }
         
+        // Add click handler for image zoom toggle
+        const carouselImages = expandedCard.querySelectorAll('.carousel-image');
+        carouselImages.forEach(image => {
+            // Default to cover mode (zoomed in)
+            image.style.objectFit = 'cover';
+            
+            // Add click handler to toggle between cover and contain modes
+            image.addEventListener('click', function(e) {
+                e.stopPropagation();
+                
+                // Toggle between cover (zoomed) and contain (fit/letterboxed) modes
+                if (image.style.objectFit === 'cover') {
+                    image.style.objectFit = 'contain';
+                    image.style.backgroundColor = '#333'; // Dark gray background for letterboxing
+                } else {
+                    image.style.objectFit = 'cover';
+                    image.style.backgroundColor = 'transparent';
+                }
+            });
+        });
+        
         // Animate in
         requestAnimationFrame(() => {
             overlay.classList.add('active');
