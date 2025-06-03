@@ -7,6 +7,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("./src/css");
     eleventyConfig.addPassthroughCopy("./src/js");
     eleventyConfig.addPassthroughCopy("./src/img"); // Make sure your images are in an 'img' folder
+    eleventyConfig.addPassthroughCopy("./src/download");
 
     // Add a filter to replace text (used for email in contact tile)
     eleventyConfig.addFilter("replace", function (value, search, replacement) {

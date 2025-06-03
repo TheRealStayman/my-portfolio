@@ -166,8 +166,8 @@
         "Technical Details": "Alexandria was developed natively for Android using Kotlin, ensuring a responsive and platform-optimized experience. Google Firebase was employed as the backend solution, handling user authentication, storing course data (including links, PDF references, and user-generated content) via Firestore, and managing photo uploads through Firebase Storage. The development process was iterative, spanning the entire lifecycle from initial planning and UI/UX design to coding, testing, and managing the open beta release, with a strong focus on incorporating user feedback to refine the application.",
         "Buttons": [
             {
-                "text": "Download on Google Play",
-                "url": ""
+                "text": "Download the apk",
+                "url": "/download/app-release.apk"
             }
         ],
         "Card Link": "/projects/alexandria/",

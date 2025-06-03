@@ -58,7 +58,8 @@ eleventyComputed:
     <div class="project-links">
         {% for button in project.Buttons %}
         <a href="{{ button.url }}" class="project-button {% if loop.first %}project-button-primary{% else %}project-button-secondary{% endif %}" 
-           {% if 'http' in button.url %}target="_blank" rel="noopener noreferrer"{% endif %}>
+           {% if 'http' in button.url %}target="_blank" rel="noopener noreferrer"{% endif %}
+           {% if button.url.endsWith('.apk') or button.url.endsWith('.zip') or button.url.endsWith('.pdf') or button.url.endsWith('.exe') %}download{% endif %}>
             <span>{{ button.text }}</span>
         </a>
         {% endfor %}
